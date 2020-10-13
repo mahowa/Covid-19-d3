@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Parcel Sandbox</title>
+    <meta charset="UTF-8" />
+    <style>
+      body {
+        background-color: #161616;
+        color: white;
+      }
+
+      .axis {
+        stroke: #383737;
+      }
+
+      text {
+        font-size: 16px;
+      }
+
+      .line {
+        fill: none;
+        stroke: green;
+        stroke-width: 3;
+      }
+      .line2 {
+        fill: none;
+        stroke: blue;
+        stroke-width: 3;
+      }
+
+      .area {
+        fill: url(#temperature-gradient);
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="line-chart"></div>
+
+    <script src="src/index.js"></script>
+  </body>
+</html>
