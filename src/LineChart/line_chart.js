@@ -50,8 +50,7 @@ export const createLineChart = async (containerId, options) => {
   const svg = d3
     .select(id)
     .append("svg")
-    .attr("width", width + margin.left + margin.right)
-    .attr("height", height + margin.top + margin.bottom)
+    .attr("viewBox", `0 0 ${screenWidth} ${chartHeight}`)
     .append("g")
     .attr("transform", `translate(${margin.left}, ${margin.top})`);
 
