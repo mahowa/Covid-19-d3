@@ -1,17 +1,25 @@
 {
-  "files": ["README.md"],
+  "files": [
+    "README.md"
+  ],
   "imageSize": 100,
-  "contributorsPerLine": 7,
-  "contributorsSortAlphabetically": false,
-  "badgeTemplate": "[![All Contributors](https://img.shields.io/badge/all_contributors-<%= contributors.length %>-orange.svg?style=flat-square)](#contributors)",
-  "contributorTemplate": "<a href=\"<%= contributor.profile %>\"><img src=\"<%= contributor.avatar_url %>\" width=\"<%= options.imageSize %>px;\" alt=\"\"/><br /><sub><b><%= contributor.name %></b></sub></a>",
-  "types": {
-    "custom": {
-      "symbol": "🔭",
-      "description": "A custom contribution type.",
-      "link": "[<%= symbol %>](<%= url %> \"<%= description %>\"),"
+  "commit": false,
+  "contributors": [
+    {
+      "login": "mahowa",
+      "name": "Matt Howa",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/8989577?v=4",
+      "profile": "http://matthowa.com",
+      "contributions": [
+        "code"
+      ]
     }
-  },
-  "skipCi": "true",
-  "contributors": []
+  ],
+  "contributorsPerLine": 7,
+  "projectName": "Covid-19-d3",
+  "projectOwner": "mahowa",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "skipCi": true
 }
+
