@@ -1,4 +1,4 @@
-# Covid-19-d3
+# D3 Charts using Covid-19 Live Data
 #HACKTOBERFEST
 
 D3 Examples using real life data
