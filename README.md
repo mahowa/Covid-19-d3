@@ -1,8 +1,8 @@
 # Covid-19-d3
 
-D3 Examples using real life data
+#HACKTOBERFEST
 
-D3 charts using covid-19 data using the NYT OS live data
+D3 Examples using real life data
 
 NY Times Live Dataset: https://github.com/nytimes/covid-19-data/tree/master/live
 
