@@ -3,6 +3,9 @@ D3 Examples using real life data
 
 NY Times Live Dataset: https://github.com/nytimes/covid-19-data/tree/master/live
 
+![Current View](current_view.png)
+
+*NOTE: Please update this picutre if you make changes to the ui/ add anything to the page*
 
 ## HACKTOBERFEST
 - [FAQ](https://hacktoberfest.digitalocean.com/faq)
