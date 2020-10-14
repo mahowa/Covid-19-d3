@@ -22,6 +22,12 @@ HACKTOBER FEST Issues:
 
 HINT: Look through code. There are some notes on things that might help you get started Hacking.
 
+
+## Contributing
+If you've ever wanted to contribute to open source, and a great cause, now is your chance!
+
+See the [contributing docs](https://allcontributors.org/docs/en/project/contribute) for more information
+
 If you create a PR Ill add you as a Hacktoberfest Contributer to the readme using a [bot](https://allcontributors.org/docs/en/bot/usage);
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
