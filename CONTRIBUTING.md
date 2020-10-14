@@ -99,11 +99,11 @@ included in the project:
 
     ```bash
     # Clone your fork of the repo into the current directory
-    git clone https://github.com/<your-username>/covid-19-d3.git
+    git clone https://github.com/<your-username>/Covid-19-d3.git
     # Navigate to the newly cloned directory
     cd react-boilerplate
     # Assign the original repo to a remote called "upstream"
-    git remote add upstream https://github.com/mahowa/covid-19-d3.git
+    git remote add upstream https://github.com/mahowa/Covid-19-d3.git
     ```
 
 2.  If you cloned a while ago, get the latest changes from upstream:
