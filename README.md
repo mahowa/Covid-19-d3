@@ -32,7 +32,7 @@ HINT: Look through code. There are some notes on things that might help you get 
 ## Contributing
 If you've ever wanted to contribute to open source, and a great cause, now is your chance!
 
-See the [contributing docs](https://allcontributors.org/docs/en/project/contribute) for more information
+See these [contributing how to docs](http://opensource.guide/how-to-contribute/) for more information
 
 If you create a PR Ill add you as a Hacktoberfest Contributer to the readme using a [bot](https://allcontributors.org/docs/en/bot/usage);
 
