@@ -11,7 +11,7 @@ NY Times Live Dataset: https://github.com/nytimes/covid-19-data/tree/master/live
 - [FAQ](https://hacktoberfest.digitalocean.com/faq)
 - [Sign Up](https://hacktoberfest.digitalocean.com/)
 
-### HACKTOBER FEST Issues:
+### HACKTOBER FEST [Issues](https://github.com/mahowa/Covid-19-d3/issues):
 
     1.  Update this Readme with information found in the codebase
         - Something like how to create a chart
