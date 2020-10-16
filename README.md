@@ -1,4 +1,6 @@
 # D3 Charts using Covid-19 Live Data
+Easily fork this project on [CodeSandbox](https://codesandbox.io/s/github/mahowa/Covid-19-d3)
+
 D3 Examples using real life data
 
 NY Times Live Dataset: https://github.com/nytimes/covid-19-data/tree/master/live
@@ -60,4 +62,4 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
 
-*Created with CodeSandbox*
+*Created with [CodeSandbox](https://codesandbox.io/s/github/mahowa/Covid-19-d3)*
