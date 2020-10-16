@@ -12,8 +12,9 @@ let width = screenWidth - margin.left - margin.right,
 
 let _containerId = '', _options = {};
 
-const onResize = () => {
+const redrawing = () => {
   screenWidth = window.innerWidth;
+  chartHeight = (screenWidth * 2) / 3;
 
   width = screenWidth - margin.left - margin.right,
   height = chartHeight - margin.top - margin.bottom;
@@ -23,7 +24,7 @@ const onResize = () => {
 
 // Hacktoberfest: Update this function to animate the data change instead of redrawing the chart each time
 if (typeof window !== 'undefined')
-  window.addEventListener("resize", onResize);
+  window.addEventListener("resize", redrawing);
 
 /**
  * Create a line chart
@@ -31,7 +32,7 @@ if (typeof window !== 'undefined')
  * @param  {Object} options key value pair of chart controls TODO: Add documentation of whats inside
  */
 export const createLineChart = async (containerId, options) => {
-  // Set for params on resize
+  // Set for params on redrawing
   _containerId = containerId;
   _options = options;
 
