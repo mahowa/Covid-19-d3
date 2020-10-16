@@ -30,6 +30,14 @@ NY Times Live Dataset: https://github.com/nytimes/covid-19-data/tree/master/live
 
 HINT: Look through code. There are some notes on things that might help you get started Hacking.
 
+## Getting Started
+
+Fork this project on [CodeSandbox](https://codesandbox.io/s/github/mahowa/Covid-19-d3) which is by far the easiest way to get started
+
+#### Work on it locally
+
+Run `npm i && npm run start`
+
 
 ## Contributing
 If you've ever wanted to contribute to open source, and a great cause, now is your chance!
