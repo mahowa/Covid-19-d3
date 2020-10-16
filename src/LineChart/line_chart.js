@@ -23,8 +23,7 @@ const redrawing = () => {
 }
 
 // Hacktoberfest: Update this function to animate the data change instead of redrawing the chart each time
-if (typeof window !== 'undefined')
-  window.addEventListener("resize", redrawing);
+window.addEventListener("resize", redrawing);
 
 /**
  * Create a line chart
