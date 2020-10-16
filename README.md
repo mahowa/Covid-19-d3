@@ -47,7 +47,7 @@ See these [contributing how to docs](http://opensource.guide/how-to-contribute/)
 If you create a PR Ill add you as a Hacktoberfest Contributer to the readme using a [bot](https://allcontributors.org/docs/en/bot/usage);
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-3-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 ## Contributors ✨
@@ -61,6 +61,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
   <tr>
     <td align="center"><a href="http://matthowa.com"><img src="https://avatars0.githubusercontent.com/u/8989577?v=4" width="100px;" alt=""/><br /><sub><b>Matt Howa</b></sub></a><br /><a href="https://github.com/mahowa/Covid-19-d3/commits?author=mahowa" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/irina-chernik"><img src="https://avatars3.githubusercontent.com/u/2941184?v=4" width="100px;" alt=""/><br /><sub><b>Irina Chernik</b></sub></a><br /><a href="https://github.com/mahowa/Covid-19-d3/commits?author=irina-chernik" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/novalkrnfds"><img src="https://avatars1.githubusercontent.com/u/26252417?v=4" width="100px;" alt=""/><br /><sub><b>Nouval Kurnia Firdaus</b></sub></a><br /><a href="https://github.com/mahowa/Covid-19-d3/commits?author=novalkrnfds" title="Code">💻</a></td>
   </tr>
 </table>
 
