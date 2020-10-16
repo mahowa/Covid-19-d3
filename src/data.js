@@ -19,6 +19,7 @@ const localStorageHelper = (action, payload) => {
     case "get":
       returnVal = localStorage.getItem(StorageIndex);
       break;
+      //pick id remove
     case "remove":
       localStorage.removeItem(StorageIndex);
       break;
@@ -55,8 +56,8 @@ export const getAllData = async (list, all = false) => {
     // TODO compile list by state
     // move cases -> cases_acum
     let statesData = {};
-    for (let i = 0; i < raw.length; i++) {
-      let dataPoint = raw[i];
+    for (let j = 0; j < raw.length; j++) {
+      let dataPoint = raw[j];
 
       if (statesData[dataPoint.state]) {
         statesData[dataPoint.state].push(dataPoint);
