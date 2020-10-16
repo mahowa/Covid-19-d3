@@ -2,15 +2,28 @@ import * as d3 from "d3";
 
 // Hacktoberfest Issue: make the chart responsive (full screen but resizes with the window)
 
-const screenWidth = window.innerWidth;
-const chartHeight = (screenWidth * 2) / 3;
+let screenWidth = window.innerWidth;
+let chartHeight = (screenWidth * 2) / 3;
 const numYTicks = 6;
 
-const margin = { top: 50, right: 50, bottom: 50, left: 50 },
+const margin = { top: 50, right: 50, bottom: 50, left: 50 };
+let width = screenWidth - margin.left - margin.right,
+    height = chartHeight - margin.top - margin.bottom;
+
+let _containerId = '', _options = {};
+
+const onResize = () => {
+  screenWidth = window.innerWidth;
+
   width = screenWidth - margin.left - margin.right,
   height = chartHeight - margin.top - margin.bottom;
 
+  createLineChart(_containerId, _options);
+}
+
 // Hacktoberfest: Update this function to animate the data change instead of redrawing the chart each time
+if (typeof window !== 'undefined')
+  window.addEventListener("resize", onResize);
 
 /**
  * Create a line chart
@@ -18,6 +31,10 @@ const margin = { top: 50, right: 50, bottom: 50, left: 50 },
  * @param  {Object} options key value pair of chart controls TODO: Add documentation of whats inside
  */
 export const createLineChart = async (containerId, options) => {
+  // Set for params on resize
+  _containerId = containerId;
+  _options = options;
+
   const id = `#${containerId}`;
   // Remove old svg if found
   d3.select(`${id} svg`).remove();
