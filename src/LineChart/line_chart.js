@@ -1,6 +1,11 @@
 import * as d3 from "d3";
 
 // Hacktoberfest Issue: make the chart responsive (full screen but resizes with the window)
+function beforePrintHandler () {
+    for (var id in Chart.instances) {
+        Chart.instances[id].resize();
+    }
+}
 
 const screenWidth = window.innerWidth;
 const chartHeight = (screenWidth * 2) / 3;
