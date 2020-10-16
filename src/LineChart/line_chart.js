@@ -1,7 +1,4 @@
 import * as d3 from "d3";
-
-// Hacktoberfest Issue: make the chart responsive (full screen but resizes with the window)
-
 let screenWidth = window.innerWidth;
 let chartHeight = (screenWidth * 2) / 3;
 const numYTicks = 6;
