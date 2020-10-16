@@ -1,6 +1,6 @@
-import { createLineChart } from "./line_chart.js";
-import { addContainer } from "../d3helpers.js";
-import { createCheckBox, createSelectBox } from "../filters.js";
+import { createLineChart } from "./line_chart";
+import { addContainer } from "../d3helpers";
+import { createCheckBox, createSelectBox } from "../filters";
 
 // Default chart config
 var lineChartOptions = {
