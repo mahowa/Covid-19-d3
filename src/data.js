@@ -39,10 +39,9 @@ export const getAllData = async (list, all = false) => {
   const localData = localStorageHelper("get");
   const data = {};
 
-  // Hacktoberfest first PR Issues
-  // 1) Check if date is older than one day. Do not return local data if it is
-  // 2) only return requested datasets if all is false
-  if (localData && localData.date) {
+  const noofDays = (Date.now() - localData.date) / (1000 * 60 * 60 * 24)
+  //console.log(noofDays)
+  if (localData && localData.date && noofDays < 1) {
     return localData.data;
   }
 
