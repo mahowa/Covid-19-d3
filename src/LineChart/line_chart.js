@@ -3,7 +3,7 @@ import * as d3 from 'd3';
 let screenWidth = window.innerWidth;
 let chartHeight = (screenWidth * 2) / 3;
 
-const margin = { top: 50, right: 50, bottom: 50, left: 50 };
+const margin = { top: 25, right: 50, bottom: 50, left: 50 };
 let width = screenWidth - margin.left - margin.right;
 let height = chartHeight - margin.top - margin.bottom;
 

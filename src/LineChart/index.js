@@ -1,6 +1,7 @@
 import { createLineChart, initLineChart } from './line_chart';
-import { addContainer } from '../d3helpers';
-import { createCheckBox, createSelectBox } from '../filters';
+import { addContainer } from "../d3helpers";
+import { createCheckBox, createSelectBox } from "../filters";
+import { createSummaryTable } from '../summaryTable'
 
 // Default chart config
 const lineChartOptions = {
@@ -38,6 +39,8 @@ const build = (data) => {
     lineChartOptions.lines[0].property = accum ? 'cases_accum' : 'cases';
     lineChartOptions.lines[1].property = accum ? 'deaths_accum' : 'deaths';
     lineChartOptions.area.property = accum ? 'cases_accum' : 'cases';
+
+    createSummaryTable(chartId, states)
 
     createLineChart({
       data: states,
