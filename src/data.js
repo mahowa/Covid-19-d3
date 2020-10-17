@@ -37,12 +37,14 @@ const localStorageHelper = (action, payload) => {
 export const getAllData = async (list, all = false) => {
   // localData : {date: timestamp, data: {}}
   const localData = localStorageHelper("get");
-  const data = {};
+  const data = {}
 
-  const noofDays = (Date.now() - localData.date) / (1000 * 60 * 60 * 24)
-  //console.log(noofDays)
-  if (localData && localData.date && noofDays < 1) {
-    return localData.data;
+  if (localData && localData.date) {
+    const noofDays = (Date.now() - localData.date) / (1000 * 60 * 60 * 24);
+
+    if (noofDays < 1) {
+      return localData.data;
+    }
   }
 
   if (list.includes("states") || all) {
