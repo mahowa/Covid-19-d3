@@ -65,6 +65,8 @@ Run `npm i && npm run start`
 ## Contributing
 If you've ever wanted to contribute to open source, and a great cause, now is your chance!
 
+I will make sure everyone gets credit as long as its not a spam request. Even if you do a task someone else does. Contribute!!
+
 See these [contributing how to docs](http://opensource.guide/how-to-contribute/) for more information.
 
 If you create a PR I'll add you as a Hacktoberfest Contributor to the Readme using a [bot](https://allcontributors.org/docs/en/bot/usage);
