@@ -6,7 +6,6 @@ iii)Pie Chart
 iv)Donut Chart
 v)Line Chart
 vi)Bubble Chart; and many more.This project mainly focusses on Line Charts.A line chart is a type of chart which displays information as a series of dataPoints connected by straight line segments. Each dataPoint has x variable determining the position on the horizontal axis and y variable determining the position of the vertical axis.
-
 Markers are automatically disabled when there are large number of dataPoints. You can override this behaviour by manually setting markerSize to a value greater than zero. 
 Steps on how to create a line graph is as follows:
 1. The Html part of the code just creates a div that will be modified by D3 later on.
