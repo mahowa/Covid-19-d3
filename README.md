@@ -68,7 +68,7 @@ If you create a PR Ill add you as a Hacktoberfest Contributer to the readme usin
 Please add a link to the code sandbox if possible to your PRs.
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-4-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-5-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 ## Contributors ✨
@@ -84,6 +84,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/irina-chernik"><img src="https://avatars3.githubusercontent.com/u/2941184?v=4" width="100px;" alt=""/><br /><sub><b>Irina Chernik</b></sub></a><br /><a href="https://github.com/mahowa/Covid-19-d3/commits?author=irina-chernik" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/novalkrnfds"><img src="https://avatars1.githubusercontent.com/u/26252417?v=4" width="100px;" alt=""/><br /><sub><b>Nouval Kurnia Firdaus</b></sub></a><br /><a href="https://github.com/mahowa/Covid-19-d3/commits?author=novalkrnfds" title="Code">💻</a></td>
     <td align="center"><a href="http://jivthesh.github.io"><img src="https://avatars3.githubusercontent.com/u/20579980?v=4" width="100px;" alt=""/><br /><sub><b>Jivthesh M R</b></sub></a><br /><a href="https://github.com/mahowa/Covid-19-d3/commits?author=jivthesh" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/Anamika810"><img src="https://avatars1.githubusercontent.com/u/55596686?v=4" width="100px;" alt=""/><br /><sub><b>Anamika810</b></sub></a><br /><a href="https://github.com/mahowa/Covid-19-d3/commits?author=Anamika810" title="Code">💻</a></td>
   </tr>
 </table>
 
