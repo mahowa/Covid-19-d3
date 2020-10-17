@@ -1,23 +1,27 @@
 # D3 Charts using Covid-19 Live Data
 D3 stands for Data-Driven Documents, which is used to create a static SVG chart. It helps to draw various types of charts:
-i)Bar Chart
-ii)Circle Chart
-iii)Pie Chart
-iv)Donut Chart
-v)Line Chart
-vi)Bubble Chart; and many more.This project mainly focuses on Line Charts. A line chart is a type of chart which displays information as a series of dataPoints connected by straight line segments. Each dataPoint has x variable determining the position on the horizontal axis and y variable determining the position on the vertical axis.
+1)  Bar Chart
+2) Circle Chart
+3)    Pie Chart
+4) Donut Chart
+5)  Line Chart
+6)  Bubble Chart; and many more.This project mainly focuses on Line Charts.A line chart is a type of chart which displays information as a series of dataPoints connected by straight line segments. Each dataPoint has x variable determining the position on the horizontal axis and y variable determining the position of the vertical axis.
 Markers are automatically disabled when there are large number of dataPoints. You can override this behaviour by manually setting markerSize to a value greater than zero. 
+
 Steps on how to create a line graph are as follows:
-1. The HTML part of the code just creates a <div> that will be modified by D3 later on.
-2. The first part of the JavaScript code sets an SVG area. It specifies the chart size and its margin. 
-3. For example the data herein, shows the increase in number of Corona virus patients as the time increases.
-4. Line is drawn using a path, and using the d3.line utility.
+
+    1. The HTML part of the code just creates a div that will be modified by D3 later on.
+    2. The first part of the JavaScript code set an SVG area. It specifies the chart size and its margin. 
+    3. For example the data herein, shows, the increase in number of Corona virus patients as the time increases.
+    4. Line is drawn using a path, and using the d3.line utility.
+
 Now that the chart is made, let's know how to style it, and following are the points which should be kept in mind while doing so:
-1.AXIS
-2.COLORS  
-3.THEMES 
-4.RESPONSIVENESS
-5.LEGEND
+1.  AXIS
+2.  COLORS  
+3.  THEMES 
+4.  RESPONSIVENESS
+5.  LEGEND
+
 You can easily fork this project on [CodeSandbox](https://codesandbox.io/s/github/mahowa/Covid-19-d3)
 
 This project is about D3 examples using real life data on real scenarios.
