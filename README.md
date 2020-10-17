@@ -1,13 +1,15 @@
 # D3 Charts using Covid-19 Live Data
 D3 stands for Data-Driven Documents, which is used to create a static SVG chart.It helps to draw various types of charts:
-i)Bar Chart
-ii)Circle Chart
-iii)Pie Chart
-iv)Donut Chart
-v)Line Chart
-vi)Bubble Chart; and many more.This project mainly focusses on Line Charts.A line chart is a type of chart which displays information as a series of dataPoints connected by straight line segments. Each dataPoint has x variable determining the position on the horizontal axis and y variable determining the position of the vertical axis.
+1)  Bar Chart
+2) Circle Chart
+3)    Pie Chart
+4) Donut Chart
+5)  Line Chart
+6)  Bubble Chart; and many more.This project mainly focusses on Line Charts.A line chart is a type of chart which displays information as a series of dataPoints connected by straight line segments. Each dataPoint has x variable determining the position on the horizontal axis and y variable determining the position of the vertical axis.
 Markers are automatically disabled when there are large number of dataPoints. You can override this behaviour by manually setting markerSize to a value greater than zero. 
+
 Steps on how to create a line graph is as follows:
+
     1. The Html part of the code just creates a div that will be modified by D3 later on.
     2. The first part of the javascript code set a svg area. It specify the chart size and its margin. 
     3. For example the data herein, shows, the increase in number of Corona virus patient as the time increases.
