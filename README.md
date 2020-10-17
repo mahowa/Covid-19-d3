@@ -65,6 +65,8 @@ See these [contributing how to docs](http://opensource.guide/how-to-contribute/)
 
 If you create a PR Ill add you as a Hacktoberfest Contributer to the readme using a [bot](https://allcontributors.org/docs/en/bot/usage);
 
+Please add a link to the code sandbox if possible to your PRs.
+
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
 [![All Contributors](https://img.shields.io/badge/all_contributors-3-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
