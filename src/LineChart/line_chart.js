@@ -16,10 +16,10 @@ const redrawing = () => {
   screenWidth = window.innerWidth;
   chartHeight = (screenWidth * 2) / 3;
 
-  width = screenWidth - margin.left - margin.right,
+  width = screenWidth - margin.left - margin.right;
   height = chartHeight - margin.top - margin.bottom;
 
-  createLineChart(_containerId, _options);
+  createLineChart(_containerId, _options, false);
 }
 
 // Hacktoberfest: Update this function to animate the data change instead of redrawing the chart each time
@@ -30,7 +30,7 @@ window.addEventListener("resize", redrawing);
  * @param  {string} containerId the id of the container to draw in;
  * @param  {Object} options key value pair of chart controls TODO: Add documentation of whats inside
  */
-export const createLineChart = async (containerId, options) => {
+export const createLineChart = async (containerId, options, init = true) => {
   // Set for params on redrawing
   _containerId = containerId;
   _options = options;
@@ -134,11 +134,22 @@ export const createLineChart = async (containerId, options) => {
 
   // Add line paths to svg
   options.lines.forEach((line, i) => {
-    svg
+    const path = svg
       .append("path")
       .datum(filteredData)
       .attr("class", `${line.property} data-line`)
       .attr("d", lines[i]);
+
+      // Add animate
+      const totalLength = path.node().getTotalLength();
+      if (init)
+        path
+          .attr("stroke-dasharray", totalLength + " " + totalLength)
+          .attr("stroke-dashoffset", totalLength)
+          .transition()
+          .duration(500)
+          .ease(d3.easeLinear)
+          .attr("stroke-dashoffset", 0);
   });
 
   if (options.area) {
@@ -156,7 +167,7 @@ export const createLineChart = async (containerId, options) => {
           .y1((d) => yScale(d[options.area.property]))
       );
     // add lines for area
-    svg
+    const horizontalLine = svg
       .append("line")
       .attr("class", `${options.area.property}-area-line area-line`)
       .attr("x1", xScale(firstDay))
@@ -164,7 +175,7 @@ export const createLineChart = async (containerId, options) => {
       .attr("x2", xScale(lastDay))
       .attr("y2", yScale(0));
 
-    svg
+    const verticalLine = svg
       .append("line")
       .attr("class", `${options.area.property}-area-line area-line`)
       .attr("x1", xScale(lastDay))
@@ -176,6 +187,25 @@ export const createLineChart = async (containerId, options) => {
           ? yScale(maxCases)
           : yScale(filteredData[numPoints - 1].cases)
       );
+      
+      // Add animate
+      const horizontalTotalLength = horizontalLine.node().getTotalLength();
+      const verticalTotalLength = verticalLine.node().getTotalLength();
+      if (init) {
+        horizontalLine
+          .attr("stroke-dasharray", horizontalTotalLength + " " + horizontalTotalLength)
+          .attr("stroke-dashoffset", horizontalTotalLength)
+          .transition()
+          .ease(d3.easeLinear)
+          .attr("stroke-dashoffset", 0);
+
+        verticalLine
+          .attr("stroke-dasharray", verticalTotalLength + " " + verticalTotalLength)
+          .attr("stroke-dashoffset", verticalTotalLength)
+          .transition()
+          .ease(d3.easeLinear)
+          .attr("stroke-dashoffset", 0);
+      }
 
     // Hacktoberfest Issue: make gradient customizable (Hint: you can add the vars to the options.area variable)
     // add gradient to svg
