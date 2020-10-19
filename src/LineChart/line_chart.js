@@ -1,42 +1,120 @@
 import * as d3 from "d3";
+
 let screenWidth = window.innerWidth;
 let chartHeight = (screenWidth * 2) / 3;
-const numYTicks = 6;
 
-const margin = { top: 50, right: 50, bottom: 50, left: 50 };
+const margin = {top: 50, right: 50, bottom: 50, left: 50};
 let width = screenWidth - margin.left - margin.right,
-    height = chartHeight - margin.top - margin.bottom;
+  height = chartHeight - margin.top - margin.bottom;
 
-let _containerId = '', _options = {};
+let _containerId = '', _options = {}, _svg, _x, _y;
 
 const redrawing = () => {
   screenWidth = window.innerWidth;
   chartHeight = (screenWidth * 2) / 3;
 
-  width = screenWidth - margin.left - margin.right,
+  width = screenWidth - margin.left - margin.right;
   height = chartHeight - margin.top - margin.bottom;
 
-  createLineChart(_containerId, _options);
+  initLineChart(_containerId, _options);
+  createLineChart(_options);
 }
 
 // Hacktoberfest: Update this function to animate the data change instead of redrawing the chart each time
 window.addEventListener("resize", redrawing);
 
-/**
- * Create a line chart
- * @param  {string} containerId the id of the container to draw in;
- * @param  {Object} options key value pair of chart controls TODO: Add documentation of whats inside
- */
-export const createLineChart = async (containerId, options) => {
+export const initLineChart = (containerId, options) => {
   // Set for params on redrawing
   _containerId = containerId;
   _options = options;
 
-  const id = `#${containerId}`;
   // Remove old svg if found
-  d3.select(`${id} svg`).remove();
+  d3.select(`#${containerId} svg`).remove();
 
-  const filteredData = options.data;
+  const svg = d3
+    .select(`#${containerId}`)
+    .append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+    .append("g")
+    .attr("transform", `translate(${margin.left}, ${margin.top})`)
+    .attr("id", 'main');
+
+
+  // Initialize X and Y axis
+  const x = d3.scaleTime().range([0, width]);
+  svg
+    .append("g")
+    .attr("transform", "translate(0," + height + ")")
+    .attr("class", "xAxis")
+    .attr("transform", `translate(0,${height})`);
+
+  const y = d3.scaleLinear().range([height, 0]);
+  svg
+    .append("g")
+    .attr("class", "yAxis");
+
+  svg
+    .append("line")
+    .attr("class", "axis sideXAxis");
+  svg
+    .append("line")
+    .attr("class", "axis sideYAxis");
+
+  options.lines.forEach((line, i) => {
+    svg
+      .append("path")
+      .attr("class", `${options.lineMap[line.property]} data-line`);
+  });
+
+  svg
+    .append("g")
+    .attr("class", "additional-axis");
+
+  if (options.area) {
+    // Add area fill
+    svg
+      .append("path")
+      .attr("class", `${options.lineMap[options.area.property]}-area area`);
+    // add lines for area
+    svg
+      .append("line")
+      .attr("class", `${options.lineMap[options.area.property]}-area-line area-line left`);
+    svg
+      .append("line")
+      .attr("class", `${options.lineMap[options.area.property]}-area-line area-line bottom`);
+
+    // Hacktoberfest Issue: make gradient customizable (Hint: you can add the vars to the options.area variable)
+    // add gradient to svg
+    svg
+      .append("linearGradient")
+      .attr("id", "temperature-gradient")
+      .attr("gradientUnits", "userSpaceOnUse");
+  }
+  _svg = svg;
+  _x = x;
+  _y = y;
+}
+/**
+ * Create a line chart
+ * @param  {Object} options key value pair of chart controls TODO: Add documentation of whats inside
+ */
+export const createLineChart = async (options) => {
+  const numYTicks = 6;
+  const animationDuration = 1000;
+  const svg = _svg;
+  const x = _x;
+  const y = _y;
+
+  // Set for params on redrawing
+  _options = options;
+
+  // Use same name for lines and update data for params to trigger chart update
+  const filteredData = options.data.map((item) => {
+    let newObj = {date: item.date, cases: item.cases};
+    options.lines.forEach(line => newObj[options.lineMap[line.property]] = item[line.property]);
+    return newObj;
+  });
   const numPoints = filteredData.length;
 
   // Find start date and end date for X
@@ -45,44 +123,37 @@ export const createLineChart = async (containerId, options) => {
   const numMonths = Math.abs(firstDay.getMonth() - lastDay.getMonth()) + 1;
 
   // Find the max values for Y
-  const maxCases = d3.max(filteredData, (d) => Number(d[options.yProperty]));
+  const maxCases = d3.max(filteredData, (d) => Number(d[options.lineMap[options.yProperty]]));
   const maxY = Math.round(maxCases + maxCases * 0.1);
 
   // Create our scales
-  const xScale = d3.scaleTime().domain([firstDay, lastDay]).range([0, width]);
-  const yScale = d3.scaleLinear().domain([0, maxY]).range([height, 0]);
+  const xScale = x.domain([firstDay, lastDay]);
+  const yScale = y.domain([0, maxY]);
 
   // Generate the lines
   const lines = options.lines.map((l) =>
     d3
       .line()
       .x((d) => xScale(new Date(d.date)))
-      .y((d) => yScale(d[l.property]))
+      .y((d) => yScale(d[options.lineMap[l.property]]))
   );
 
-  // Set up svg
-  const svg = d3
-    .select(id)
-    .append("svg")
-    .attr("width", width + margin.left + margin.right)
-    .attr("height", height + margin.top + margin.bottom)
-    .append("g")
-    .attr("transform", `translate(${margin.left}, ${margin.top})`);
 
   // Hacktoberfest Issue: and ability from options param to add custom class (hint use current class as a default)
 
-  // Set up axis
+  // Set up axis ticks
   // X Axis
   svg
-    .append("g")
-    .attr("class", "axis")
-    .attr("transform", `translate(0,${height})`)
+    .selectAll(".xAxis")
+    .transition()
+    .duration(animationDuration)
     .call(
       d3
         .axisBottom(xScale)
         .tickFormat((t) => d3.timeFormat("%B")(t))
         .tickSize(0)
         .ticks(numMonths) // todo figure out why this isnt working the way we want
+      // http://www.d3noob.org/2016/08/changing-number-of-ticks-on-axis-in.html
     )
     .selectAll("text")
     .attr("stroke", "none")
@@ -93,7 +164,9 @@ export const createLineChart = async (containerId, options) => {
 
   // Y Axis
   const yAxis = svg
-    .append("g")
+    .selectAll(".yAxis")
+    .transition()
+    .duration(animationDuration)
     .call(d3.axisLeft(yScale).tickSize(0).ticks(numYTicks, "s"));
 
   yAxis.select("path").attr("class", "axis");
@@ -103,91 +176,99 @@ export const createLineChart = async (containerId, options) => {
   // Add closing boxes around chart
   // Hacktoberfest Issue: add a custom class using the options variable (Hint look for other examples)
   svg
-    .append("line")
-    .attr("class", "axis")
+    .select(".sideXAxis")
     .attr("x1", xScale(firstDay))
     .attr("y1", yScale(maxY))
     .attr("x2", xScale(lastDay)); // Top Horizontal Line
 
   svg
-    .append("line")
-    .attr("class", "axis")
+    .select(".sideYAxis")
     .attr("y1", yScale(0))
     .attr("x1", xScale(lastDay))
     .attr("y2", yScale(maxY))
     .attr("x2", xScale(lastDay)); // Right Vertical Line
 
-  svg
-    .append("g")
+  // Get all additional axis lines and set with data
+  var u = svg
+    .select(".additional-axis")
     .selectAll("line")
-    .data(yScale.ticks(numYTicks))
+    .data(yScale.ticks(numYTicks));
+
+  // Add new axis
+  u
     .enter()
     .append("line")
     .attr("class", "axis")
+    .merge(u)
+    .transition()
+    .duration(animationDuration)
     .attr("y1", (d, i) => yScale(d))
     .attr("x1", xScale(firstDay))
     .attr("x2", xScale(lastDay))
     .attr("y2", (d, i) => yScale(d));
 
-  // Add line paths to svg
+  // Remove old axis
+  u
+    .exit()
+    .transition()
+    .duration(animationDuration)
+    .style("opacity", 0)
+    .remove();
+
+  // Add chart data lines
   options.lines.forEach((line, i) => {
     svg
-      .append("path")
+      .select(`.${options.lineMap[line.property]}`)
       .datum(filteredData)
-      .attr("class", `${line.property} data-line`)
+      .transition()
+      .duration(animationDuration)
       .attr("d", lines[i]);
   });
 
   if (options.area) {
+    console.log('in area');
     // Add area fill
     svg
-      .append("path")
+      .selectAll(`.${options.lineMap[options.area.property]}-area`)
       .datum(filteredData)
-      .attr("class", `${options.area.property}-area area`)
       .attr(
         "d",
         d3
           .area()
           .x((d) => xScale(new Date(d.date)))
           .y0(yScale(0))
-          .y1((d) => yScale(d[options.area.property]))
+          .y1((d) => yScale(d[options.lineMap[options.area.property]]))
       );
     // add lines for area
     svg
-      .append("line")
-      .attr("class", `${options.area.property}-area-line area-line`)
+      .select(`.${options.lineMap[options.area.property]}-area-line.bottom`)
       .attr("x1", xScale(firstDay))
       .attr("y1", yScale(0))
       .attr("x2", xScale(lastDay))
       .attr("y2", yScale(0));
 
     svg
-      .append("line")
-      .attr("class", `${options.area.property}-area-line area-line`)
+      .select(`.${options.lineMap[options.area.property]}-area-line.left`)
       .attr("x1", xScale(lastDay))
       .attr("y1", yScale(0))
       .attr("x2", xScale(lastDay))
       .attr(
         "y2",
-        options.accum
-          ? yScale(maxCases)
-          : yScale(filteredData[numPoints - 1].cases)
+        yScale(options.accum ? maxCases : filteredData[numPoints - 1][options.lineMap[options.area.property]])
       );
 
     // Hacktoberfest Issue: make gradient customizable (Hint: you can add the vars to the options.area variable)
     // add gradient to svg
     svg
-      .append("linearGradient")
-      .attr("id", "temperature-gradient")
-      .attr("gradientUnits", "userSpaceOnUse")
+      .select(`#temperature-gradient`)
       .attr("x1", 0)
       .attr("y1", yScale(0))
       .attr("x2", 0)
       .attr("y2", yScale(maxCases))
       .selectAll("stop")
       .data([
-        { offset: "0%", color: "transparent" },
-        { offset: "50%", color: "green" }
+        {offset: "0%", color: "transparent"},
+        {offset: "50%", color: "green"}
       ])
       .enter()
       .append("stop")
@@ -195,3 +276,4 @@ export const createLineChart = async (containerId, options) => {
       .attr("stop-color", (d) => d.color);
   }
 };
+
