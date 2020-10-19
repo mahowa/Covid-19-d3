@@ -1,4 +1,4 @@
-import { createLineChart } from "./line_chart";
+import {createLineChart, initLineChart} from "./line_chart";
 import { addContainer } from "../d3helpers";
 import { createCheckBox, createSelectBox } from "../filters";
 
@@ -13,6 +13,12 @@ var lineChartOptions = {
       property: "deaths"
     }
   ],
+  lineMap: {
+    "cases": 'cases-line',
+    "cases_accum": "cases-line",
+    "deaths_accum": "deaths-line",
+    "deaths": 'deaths-line'
+  },
   area: { property: "cases" }
 };
 
@@ -23,6 +29,7 @@ var lineChartConfig = {
 
 const build = (data) => {
   const chartId = "line-chart";
+
   const buildChart = () => {
     const states = data.states[lineChartConfig.state];
 
@@ -32,7 +39,7 @@ const build = (data) => {
     lineChartOptions.lines[1].property = accum ? "deaths_accum" : "deaths";
     lineChartOptions.area.property = accum ? "cases_accum" : "cases";
 
-    createLineChart(chartId, {
+    createLineChart({
       data: states,
       ...lineChartOptions,
       ...lineChartConfig
@@ -43,6 +50,7 @@ const build = (data) => {
     if (!option) return;
     const [key, value] = Object.entries(option)[0];
     lineChartConfig[key] = value;
+
     buildChart();
   };
 
@@ -55,6 +63,7 @@ const build = (data) => {
   );
 
   createCheckBox(chartId, "accum", "Show Cumulative", updateConfig);
+  initLineChart(chartId, lineChartOptions);
 
   // Hacktoberfest issue: create a time selection control
 

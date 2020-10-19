@@ -37,9 +37,8 @@ const localStorageHelper = (action, payload) => {
 export const getAllData = async (list, all = false) => {
   // localData : {date: timestamp, data: {}}
   const localData = localStorageHelper("get");
-  const data = {};
+  const data = {}
 
-  //console.log(noofDays)
   if (localData && localData.date) {
     const noofDays = (Date.now() - localData.date) / (1000 * 60 * 60 * 24);
 

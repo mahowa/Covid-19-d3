@@ -30,7 +30,7 @@ This project is about D3 examples using real life data on real scenarios.
 
 NY Times Live Dataset: https://github.com/nytimes/covid-19-data/tree/master/live
 
-![Current View](current_view.png)
+![Current View](current_view.gif)
 
 *NOTE: Please update this picutre if you make changes to the ui/add anything to the page*
 
