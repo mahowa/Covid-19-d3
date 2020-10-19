@@ -74,7 +74,7 @@ See these [contributing how to docs](http://opensource.guide/how-to-contribute/)
 If you create a PR I'll add you as a Hacktoberfest Contributor to the Readme using a [bot](https://allcontributors.org/docs/en/bot/usage);
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-6-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-7-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 ## Contributors ✨
@@ -92,6 +92,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="http://jivthesh.github.io"><img src="https://avatars3.githubusercontent.com/u/20579980?v=4" width="100px;" alt=""/><br /><sub><b>Jivthesh M R</b></sub></a><br /><a href="https://github.com/mahowa/Covid-19-d3/commits?author=jivthesh" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/Anamika810"><img src="https://avatars1.githubusercontent.com/u/55596686?v=4" width="100px;" alt=""/><br /><sub><b>Anamika810</b></sub></a><br /><a href="https://github.com/mahowa/Covid-19-d3/commits?author=Anamika810" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/lakshyaTaragi"><img src="https://avatars0.githubusercontent.com/u/72077704?v=4" width="100px;" alt=""/><br /><sub><b>Lakshya Taragi</b></sub></a><br /><a href="https://github.com/mahowa/Covid-19-d3/commits?author=lakshyaTaragi" title="Code">💻</a></td>
+    <td align="center"><a href="https://henrynguyen.design/"><img src="https://avatars0.githubusercontent.com/u/37063961?v=4" width="100px;" alt=""/><br /><sub><b>Henry Nguyen</b></sub></a><br /><a href="https://github.com/mahowa/Covid-19-d3/commits?author=hn4733" title="Code">💻</a></td>
   </tr>
 </table>
 
