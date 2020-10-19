@@ -58,6 +58,15 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "hn4733",
+      "name": "Henry Nguyen",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/37063961?v=4",
+      "profile": "https://henrynguyen.design/",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
