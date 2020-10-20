@@ -74,7 +74,7 @@ See these [contributing how to docs](http://opensource.guide/how-to-contribute/)
 If you create a PR I'll add you as a Hacktoberfest Contributor to the Readme using a [bot](https://allcontributors.org/docs/en/bot/usage);
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-9-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-10-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 ## Contributors ✨
@@ -97,6 +97,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
   <tr>
     <td align="center"><a href="https://www.linkedin.com/in/ashish979/"><img src="https://avatars2.githubusercontent.com/u/7333996?v=4" width="100px;" alt=""/><br /><sub><b>Ashish Agrawal</b></sub></a><br /><a href="https://github.com/mahowa/Covid-19-d3/commits?author=ashish979" title="Code">💻</a></td>
     <td align="center"><a href="https://adncodez.com"><img src="https://avatars2.githubusercontent.com/u/20237313?v=4" width="100px;" alt=""/><br /><sub><b>Adnan Habbat</b></sub></a><br /><a href="https://github.com/mahowa/Covid-19-d3/commits?author=AdnCodez" title="Code">💻</a></td>
+    <td align="center"><a href="https://cloakspace.tech/"><img src="https://avatars2.githubusercontent.com/u/60067940?v=4" width="100px;" alt=""/><br /><sub><b>Subham Das</b></sub></a><br /><a href="https://github.com/mahowa/Covid-19-d3/commits?author=das-jishu" title="Code">💻</a></td>
   </tr>
 </table>
 
