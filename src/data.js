@@ -2,7 +2,7 @@ import * as d3 from "d3";
 
 // SuperFeature: Create a git event that pulls in datasets locally when theres a push to the master branch
 // TODO add a time stamp to local storage and make the init function refresh the data if greater than one day
-const StorageIndex = "cv19data";
+export const StorageIndex = "cv19data";
 
 /**
  * Helper function to handle local storage
