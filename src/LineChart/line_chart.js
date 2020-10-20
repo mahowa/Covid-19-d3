@@ -231,6 +231,8 @@ export const createLineChart = async (options) => {
     svg
       .selectAll(`.${options.lineMap[options.area.property]}-area`)
       .datum(filteredData)
+      .transition()
+      .duration(animationDuration)
       .attr(
         "d",
         d3
