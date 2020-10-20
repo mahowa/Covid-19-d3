@@ -5,12 +5,13 @@
   "main": "index.html",
   "scripts": {
     "start": "parcel index.html --open",
+    "test": "jest",
     "build": "parcel build index.html --log-level 4"
   },
   "dependencies": {
     "d3": "5.16.0"
   },
-  "eslintConfig":{
+  "eslintConfig": {
     "extends": [
       "wesbos"
     ],
@@ -42,10 +43,18 @@
     "eslint-plugin-react": "^7.21.5",
     "eslint-plugin-react-hooks": "^4.1.2",
     "parcel-bundler": "^1.6.1",
-    "prettier": "^2.1.2"
+    "prettier": "^2.1.2",
+    "@babel/preset-env": "^7.12.1",
+    "jest": "^26.6.0"
   },
   "keywords": [],
   "browserslist": [
     "last 1 Chrome version"
-  ]
+  ],
+  "jest": {
+    "verbose": true,
+    "setupFilesAfterEnv": [
+      "./test/utils/localStorageMock.js"
+    ]
+  }
 }
