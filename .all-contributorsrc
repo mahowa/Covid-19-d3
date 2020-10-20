@@ -76,6 +76,15 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "AdnCodez",
+      "name": "Adnan Habbat",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/20237313?v=4",
+      "profile": "https://adncodez.com",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
