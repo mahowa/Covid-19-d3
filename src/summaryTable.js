@@ -1,4 +1,4 @@
-import * as d3 from "d3";
+import * as d3 from 'd3';
 
 /**
  * Get the total cases over a period of time. NOTE: add keys to object to get other totals. eg deaths
@@ -8,6 +8,20 @@ function getTotals(data) {
   return data.reduce((res, day) => ({
     cases: res.cases + day.cases,
   }), { cases: 0 });
+}
+
+/**
+ * Init summary table before chart initialization
+ * @param  {string} containerId id of chart
+ */
+export const initSummaryTable = (
+  containerId,
+) => {
+  const id = `#${containerId}`
+  const table = d3
+    .select(id)
+    .append('table')
+    .attr('class', 'summary-table')
 }
 
 /**
@@ -21,7 +35,7 @@ export const createSummaryTable = (
 ) => {
   const id = `#${containerId}`
 
-  d3.select(`${id} table`).remove();
+  d3.select(`${id} .summary-table`).html('');
 
   const numPoints = data.length;
   const lastDay = data[numPoints - 1].date.getDay();
@@ -34,45 +48,43 @@ export const createSummaryTable = (
 
   const summary = {
     totalCases: {
-      label: "total cases",
+      label: 'total cases',
       value: data[numPoints - 1].cases_accum,
     },
     totalDeaths: {
-      label: "total deaths",
+      label: 'total deaths',
       value: data[numPoints - 1].deaths_accum,
     },
     lastWeekCases: {
-      label: "last week cases",
+      label: 'last week cases',
       value: lastWeekTotals.cases,
     },
     currentWeek: {
-      label: "current week cases",
+      label: 'current week cases',
       value: currentWeekTotals.cases,
     }
   }
 
   const table = d3
-    .select(id)
-    .append("table")
-    .attr("class", "summary-table")
+    .select('.summary-table')
   const head = table
-    .append("thead")
-    .append("tr")
+    .append('thead')
+    .append('tr')
   const body = table
-    .append("tbody")
-    .append("tr")
+    .append('tbody')
+    .append('tr')
 
   for(let key in summary) {
     head
-      .append("th")
+      .append('th')
       .text(summary[key].label)
-      .attr("width", 150)
-      .attr("class", "summary-table_cell")
+      .attr('width', 150)
+      .attr('class', 'summary-table_cell')
     body
-      .append("td")
+      .append('td')
       .text(summary[key].value)
-      .attr("width", 150)
-      .attr("class", "summary-table_cell")
+      .attr('width', 150)
+      .attr('class', 'summary-table_cell')
   }
 }
 
