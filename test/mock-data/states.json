@@ -1,0 +1,72 @@
+[
+  {
+    "date": "2020-01-21",
+    "state": "Washington",
+    "fips": 53,
+    "cases": 1,
+    "deaths": 0
+  },
+  {
+    "date": "2020-01-22",
+    "state": "Washington",
+    "fips": 53,
+    "cases": 1,
+    "deaths": 0
+  },
+  {
+    "date": "2020-01-23",
+    "state": "Washington",
+    "fips": 53,
+    "cases": 1,
+    "deaths": 0
+  },
+  {
+    "date": "2020-01-24",
+    "state": "Illinois",
+    "fips": 17,
+    "cases": 1,
+    "deaths": 0
+  },
+  {
+    "date": "2020-01-24",
+    "state": "Washington",
+    "fips": 53,
+    "cases": 1,
+    "deaths": 0
+  },
+  {
+    "date": "2020-01-25",
+    "state": "California",
+    "fips": "06",
+    "cases": 1,
+    "deaths": 0
+  },
+  {
+    "date": "2020-01-25",
+    "state": "Illinois",
+    "fips": 17,
+    "cases": 1,
+    "deaths": 0
+  },
+  {
+    "date": "2020-01-25",
+    "state": "Washington",
+    "fips": 53,
+    "cases": 1,
+    "deaths": 0
+  },
+  {
+    "date": "2020-01-26",
+    "state": "Arizona",
+    "fips": "04",
+    "cases": 1,
+    "deaths": 0
+  },
+  {
+    "date": "2020-01-26",
+    "state": "California",
+    "fips": "06",
+    "cases": 2,
+    "deaths": 0
+  }
+]
