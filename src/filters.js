@@ -1,4 +1,4 @@
-import * as d3 from "d3";
+import * as d3 from 'd3';
 
 /**
  * Create a checkbox for a chart
@@ -14,21 +14,21 @@ export const createCheckBox = (
   property,
   text,
   onChange,
-  labelClass = "cv19label",
-  inputClass = "cv19input"
+  labelClass = 'cv19label',
+  inputClass = 'cv19input'
 ) => {
   const id = `${containerId}_${property}_checkbox`;
   d3.select(`#${containerId}`)
-    .append("label")
-    .attr("class", labelClass)
+    .append('label')
+    .attr('class', labelClass)
     .text(text)
-    .append("input")
-    .attr("type", "checkbox")
-    .attr("id", id)
-    .property("checked", false)
-    .attr("class", inputClass)
-    .on("change", () => {
-      const val = d3.select(`#${id}`).property("checked");
+    .append('input')
+    .attr('type', 'checkbox')
+    .attr('id', id)
+    .property('checked', false)
+    .attr('class', inputClass)
+    .on('change', () => {
+      const val = d3.select(`#${id}`).property('checked');
       onChange({ [property]: val });
     });
 };
@@ -47,26 +47,26 @@ export const createSelectBox = (
   property,
   options,
   onChange,
-  selectClass = "cv19select",
-  optionClass = "cv19option"
+  selectClass = 'cv19select',
+  optionClass = 'cv19option'
 ) => {
   const id = `${property}_select`;
 
   const select = d3
     .select(`#${containerId}`)
-    .append("select")
-    .attr("class", selectClass)
-    .attr("id", id)
-    .on("change", () => {
-      const val = d3.select(`#${id}`).property("value");
+    .append('select')
+    .attr('class', selectClass)
+    .attr('id', id)
+    .on('change', () => {
+      const val = d3.select(`#${id}`).property('value');
       onChange({ [property]: val });
     });
 
   select
-    .selectAll("option")
+    .selectAll('option')
     .data(options)
     .enter()
-    .append("option")
-    .attr("class", optionClass)
+    .append('option')
+    .attr('class', optionClass)
     .text((d) => d);
 };
