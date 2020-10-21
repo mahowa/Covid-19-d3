@@ -1,6 +1,7 @@
 import { createLineChart, initLineChart } from './line_chart';
 import { addContainer } from '../d3helpers';
 import { createCheckBox, createSelectBox } from '../filters';
+import { createSummaryTable, initSummaryTable } from '../summaryTable'
 
 // Default chart config
 const lineChartOptions = {
@@ -39,6 +40,8 @@ const build = (data) => {
     lineChartOptions.lines[1].property = accum ? 'deaths_accum' : 'deaths';
     lineChartOptions.area.property = accum ? 'cases_accum' : 'cases';
 
+    createSummaryTable(chartId, states)
+
     createLineChart({
       data: states,
       ...lineChartOptions,
@@ -58,6 +61,7 @@ const build = (data) => {
   createSelectBox(chartId, 'state', Object.keys(data.states).sort(), updateConfig);
 
   createCheckBox(chartId, 'accum', 'Show Cumulative', updateConfig);
+  initSummaryTable(chartId);
   initLineChart(chartId, lineChartOptions);
 
   // Hacktoberfest issue: create a time selection control
