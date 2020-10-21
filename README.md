@@ -74,7 +74,7 @@ See these [contributing how to docs](http://opensource.guide/how-to-contribute/)
 If you create a PR I'll add you as a Hacktoberfest Contributor to the Readme using a [bot](https://allcontributors.org/docs/en/bot/usage);
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-11-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-12-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 ## Contributors ✨
@@ -99,6 +99,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://adncodez.com"><img src="https://avatars2.githubusercontent.com/u/20237313?v=4" width="100px;" alt=""/><br /><sub><b>Adnan Habbat</b></sub></a><br /><a href="https://github.com/mahowa/Covid-19-d3/commits?author=AdnCodez" title="Code">💻</a></td>
     <td align="center"><a href="https://cloakspace.tech/"><img src="https://avatars2.githubusercontent.com/u/60067940?v=4" width="100px;" alt=""/><br /><sub><b>Subham Das</b></sub></a><br /><a href="https://github.com/mahowa/Covid-19-d3/commits?author=das-jishu" title="Code">💻</a></td>
     <td align="center"><a href="https://www.linkedin.com/in/simonhoyos/"><img src="https://avatars1.githubusercontent.com/u/23706543?v=4" width="100px;" alt=""/><br /><sub><b>Simon Hoyos</b></sub></a><br /><a href="https://github.com/mahowa/Covid-19-d3/commits?author=simonhoyos" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/cardinalion"><img src="https://avatars0.githubusercontent.com/u/32423248?v=4" width="100px;" alt=""/><br /><sub><b>cardinalion</b></sub></a><br /><a href="https://github.com/mahowa/Covid-19-d3/commits?author=cardinalion" title="Code">💻</a></td>
   </tr>
 </table>
 
