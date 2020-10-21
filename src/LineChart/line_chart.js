@@ -1,13 +1,12 @@
 import * as d3 from "d3";
 
-let screenWidth = window.innerWidth;
-let chartHeight = (screenWidth * 2) / 3;
-
 const margin = { top: 25, right: 50, bottom: 50, left: 50 };
+let screenWidth = 800;
+let chartHeight = (screenWidth * 2) / 3;
 let width = screenWidth - margin.left - margin.right;
 let height = chartHeight - margin.top - margin.bottom;
 
-let _containerId = "";
+let _containerId = '';
 let _options = {};
 let _svg;
 let _x;
@@ -15,13 +14,15 @@ let _y;
 let _xAxis;
 let _initialXDomain;
 
-const redrawing = () => {
-  screenWidth = window.innerWidth;
+const calculateDimensions = () => {
+  screenWidth = document.querySelector(`#${_containerId}`).clientWidth;
   chartHeight = (screenWidth * 2) / 3;
 
   width = screenWidth - margin.left - margin.right;
   height = chartHeight - margin.top - margin.bottom;
+}
 
+const redrawing = () => {
   initLineChart(_containerId, _options);
   createLineChart(_options);
 };
@@ -33,6 +34,7 @@ export const initLineChart = (containerId, options) => {
   // Set for params on redrawing
   _containerId = containerId;
   _options = options;
+  calculateDimensions();
 
   // Remove old svg if found
   d3.select(`#${containerId} svg`).remove();
@@ -256,7 +258,6 @@ export const createLineChart = async (options) => {
   });
 
   if (options.area) {
-    console.log("in area");
     // Add area fill
     svg
       .selectAll(`.${options.lineMap[options.area.property]}-area`)
