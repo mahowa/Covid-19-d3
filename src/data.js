@@ -69,13 +69,11 @@ export const getAllData = async (list, all = false) => {
       let totalDeaths = Number(data[0]?.deaths || 0);
       statesData[name] = data.map((d, i) => {
         const current = { ...d };
-        current.cases_accum = Number(current.cases);
-        current.deaths_accum = Number(current.deaths);
-        current.cases = Number(current.cases) - totalCases;
+        current.cases = Math.max(Number(current.cases) - totalCases, 0);
+        current.cases_accum = (totalCases += current.cases);
         current.deaths = Math.max(Number(current.deaths) - totalDeaths, 0);
+        current.deaths_accum = (totalDeaths += current.deaths);
         current.date = new Date(current.date);
-        totalCases += current.cases;
-        totalDeaths += current.deaths;
         return current;
       });
     });
