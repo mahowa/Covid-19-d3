@@ -1,8 +1,8 @@
-import * as d3 from "d3";
+import * as d3 from 'd3';
 
 // SuperFeature: Create a git event that pulls in datasets locally when theres a push to the master branch
 // TODO add a time stamp to local storage and make the init function refresh the data if greater than one day
-export const StorageIndex = "cv19data";
+export const StorageIndex = 'cv19data';
 
 /**
  * Helper function to handle local storage
@@ -13,13 +13,13 @@ export const StorageIndex = "cv19data";
 const localStorageHelper = (action, payload) => {
   let returnVal = null;
   switch (action) {
-    case "set":
+    case 'set':
       localStorage.setItem(StorageIndex, JSON.stringify(payload));
       break;
-    case "get":
+    case 'get':
       returnVal = localStorage.getItem(StorageIndex);
       break;
-    case "remove":
+    case 'remove':
       localStorage.removeItem(StorageIndex);
       break;
     default:
@@ -36,7 +36,7 @@ const localStorageHelper = (action, payload) => {
  */
 export const getAllData = async (list, all = false) => {
   // localData : {date: timestamp, data: {}}
-  const localData = localStorageHelper("get");
+  const localData = localStorageHelper('get');
   const data = {};
 
   if (localData && localData.date) {
@@ -47,10 +47,10 @@ export const getAllData = async (list, all = false) => {
     }
   }
 
-  if (list.includes("states") || all) {
+  if (list.includes('states') || all) {
     // date,state,fips,cases,deaths
     const raw = await d3.csv(
-      "https://raw.githubusercontent.com/nytimes/covid-19-data/master/us-states.csv"
+      'https://raw.githubusercontent.com/nytimes/covid-19-data/master/us-states.csv'
     );
 
     const statesData = {};
@@ -67,16 +67,16 @@ export const getAllData = async (list, all = false) => {
       if (usData[dataPoint.date]) {
         usData[dataPoint.date].cases += Number(dataPoint.cases);
         usData[dataPoint.date].deaths += Number(dataPoint.deaths);
-        usData[dataPoint.date].state = "All";
+        usData[dataPoint.date].state = 'All';
       } else {
         usData[dataPoint.date] = { ...dataPoint };
         usData[dataPoint.date].cases = Number(dataPoint.cases);
         usData[dataPoint.date].deaths = Number(dataPoint.deaths);
-        usData[dataPoint.date].state = "All";
+        usData[dataPoint.date].state = 'All';
       }
     }
 
-    statesData["*All States*"] = Object.values(usData);
+    statesData['*All States*'] = Object.values(usData);
 
     Object.entries(statesData).forEach(([name, data]) => {
       let totalCases = Number(data[0]?.cases || 0);
@@ -127,7 +127,7 @@ export const getAllData = async (list, all = false) => {
   // }
 
   if (all) {
-    localStorageHelper("set", { date: Date.now(), data });
+    localStorageHelper('set', { date: Date.now(), data });
   }
 
   return data;
