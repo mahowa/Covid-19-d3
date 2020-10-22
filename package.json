@@ -6,7 +6,10 @@
   "scripts": {
     "start": "parcel index.html --open",
     "test": "jest",
-    "build": "parcel build index.html --log-level 4"
+    "build": "parcel build index.html --log-level 4",
+    "lint": "eslint",
+    "prettier:check": "prettier -c src/* test/* --single-quote",
+    "prettier:write": "prettier -w src/* test/* --single-quote"
   },
   "dependencies": {
     "d3": "5.16.0"
@@ -31,6 +34,7 @@
   "devDependencies": {
     "@babel/core": "7.2.0",
     "@babel/plugin-proposal-optional-chaining": "^7.7.5",
+    "@babel/preset-env": "^7.12.1",
     "babel-eslint": "^10.1.0",
     "eslint": "^7.11.0",
     "eslint-config-airbnb": "^18.2.0",
@@ -42,10 +46,10 @@
     "eslint-plugin-prettier": "^3.1.4",
     "eslint-plugin-react": "^7.21.5",
     "eslint-plugin-react-hooks": "^4.1.2",
+    "husky": "^4.3.0",
+    "jest": "^26.6.0",
     "parcel-bundler": "^1.6.1",
-    "prettier": "^2.1.2",
-    "@babel/preset-env": "^7.12.1",
-    "jest": "^26.6.0"
+    "prettier": "^2.1.2"
   },
   "keywords": [],
   "browserslist": [
@@ -56,5 +60,10 @@
     "setupFilesAfterEnv": [
       "./test/utils/localStorageMock.js"
     ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint && npm run prettier:check"
+    }
   }
 }

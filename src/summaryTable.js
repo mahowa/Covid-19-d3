@@ -5,35 +5,30 @@ import * as d3 from 'd3';
  * @param  {Object[]} data filtered state data over a period of time
  */
 function getTotals(data) {
-  return data.reduce((res, day) => ({
-    cases: res.cases + day.cases,
-  }), { cases: 0 });
+  return data.reduce(
+    (res, day) => ({
+      cases: res.cases + day.cases,
+    }),
+    { cases: 0 }
+  );
 }
 
 /**
  * Init summary table before chart initialization
  * @param  {string} containerId id of chart
  */
-export const initSummaryTable = (
-  containerId,
-) => {
-  const id = `#${containerId}`
-  const table = d3
-    .select(id)
-    .append('table')
-    .attr('class', 'summary-table')
-}
+export const initSummaryTable = (containerId) => {
+  const id = `#${containerId}`;
+  const table = d3.select(id).append('table').attr('class', 'summary-table');
+};
 
 /**
  * Create a summary table for a chart
  * @param  {string} containerId id of chart
  * @param  {Object[]} data filtered state data
  */
-export const createSummaryTable = (
-  containerId,
-  data,
-) => {
-  const id = `#${containerId}`
+export const createSummaryTable = (containerId, data) => {
+  const id = `#${containerId}`;
 
   d3.select(`${id} .summary-table`).html('');
 
@@ -44,7 +39,7 @@ export const createSummaryTable = (
   const lastWeek = data.slice(lastWeekInitialIndex, currentWeekInitialIndex);
   const currentWeek = data.slice(currentWeekInitialIndex);
   const lastWeekTotals = getTotals(lastWeek);
-  const currentWeekTotals = getTotals(currentWeek)
+  const currentWeekTotals = getTotals(currentWeek);
 
   const summary = {
     totalCases: {
@@ -62,29 +57,23 @@ export const createSummaryTable = (
     currentWeek: {
       label: 'current week cases',
       value: currentWeekTotals.cases,
-    }
-  }
+    },
+  };
 
-  const table = d3
-    .select('.summary-table')
-  const head = table
-    .append('thead')
-    .append('tr')
-  const body = table
-    .append('tbody')
-    .append('tr')
+  const table = d3.select('.summary-table');
+  const head = table.append('thead').append('tr');
+  const body = table.append('tbody').append('tr');
 
-  for(let key in summary) {
+  for (let key in summary) {
     head
       .append('th')
       .text(summary[key].label)
       .attr('width', 150)
-      .attr('class', 'summary-table_cell')
+      .attr('class', 'summary-table_cell');
     body
       .append('td')
       .text(summary[key].value)
       .attr('width', 150)
-      .attr('class', 'summary-table_cell')
+      .attr('class', 'summary-table_cell');
   }
-}
-
+};
