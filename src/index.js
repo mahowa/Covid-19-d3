@@ -8,7 +8,6 @@ const main = async () => {
   // Get all data
   const data = await init();
   console.log('Initialized data sets', Object.keys(data));
-
   LineChart(data);
 };
 

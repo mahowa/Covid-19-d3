@@ -24,7 +24,7 @@ const lineChartOptions = {
 };
 
 const lineChartConfig = {
-  state: "Alabama", // HacktoberFest Issue: would be cool if we got the users location and set this to default
+  state: "*All States*", // HacktoberFest Issue: would be cool if we got the users location and set this to default
   accum: false,
 };
 
