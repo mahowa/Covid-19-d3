@@ -1,26 +1,29 @@
 The most [up to date code](https://codesandbox.io/s/github/mahowa/Covid-19-d3)
 
 # D3 Charts using Covid-19 Live Data
+
 D3 stands for Data-Driven Documents, which is used to create a static SVG chart. It helps to draw various types of charts:
-1)  Bar Chart
-2) Circle Chart
-3)    Pie Chart
-4) Donut Chart
-5)  Line Chart
-6)  Bubble Chart; and many more.This project mainly focuses on Line Charts.A line chart is a type of chart which displays information as a series of dataPoints connected by straight line segments. Each dataPoint has x variable determining the position on the horizontal axis and y variable determining the position of the vertical axis.
-Markers are automatically disabled when there are large number of dataPoints. You can override this behaviour by manually setting markerSize to a value greater than zero. 
+
+1.  Bar Chart
+2.  Circle Chart
+3.  Pie Chart
+4.  Donut Chart
+5.  Line Chart
+6.  Bubble Chart; and many more.This project mainly focuses on Line Charts.A line chart is a type of chart which displays information as a series of dataPoints connected by straight line segments. Each dataPoint has x variable determining the position on the horizontal axis and y variable determining the position of the vertical axis.
+    Markers are automatically disabled when there are large number of dataPoints. You can override this behaviour by manually setting markerSize to a value greater than zero.
 
 Steps on how to create a line graph are as follows:
 
     1. The HTML part of the code just creates a div that will be modified by D3 later on.
-    2. The first part of the JavaScript code set an SVG area. It specifies the chart size and its margin. 
+    2. The first part of the JavaScript code set an SVG area. It specifies the chart size and its margin.
     3. For example the data herein, shows, the increase in number of Corona virus patients as the time increases.
     4. Line is drawn using a path, and using the d3.line utility.
 
 Now that the chart is made, let's know how to style it, and following are the points which should be kept in mind while doing so:
+
 1.  AXIS
-2.  COLORS  
-3.  THEMES 
+2.  COLORS
+3.  THEMES
 4.  RESPONSIVENESS
 5.  LEGEND
 
@@ -33,9 +36,10 @@ NY Times Live Dataset: https://github.com/nytimes/covid-19-data/tree/master/live
 ![Current View](current_view.gif)
 Brush over section of chart to select the time frame. Double click to reset the chart.
 
-*NOTE: Please update this picutre if you make changes to the ui/add anything to the page*
+_NOTE: Please update this picutre if you make changes to the ui/add anything to the page_
 
 ## HACKTOBERFEST
+
 - For any queries, switch to the [FAQ](https://hacktoberfest.digitalocean.com/faq) section.
 - Sign up to the Hacktober Fest and enjoy the open source festival all month long.[Sign Up](https://hacktoberfest.digitalocean.com/)
 
@@ -62,8 +66,8 @@ Fork this project on [CodeSandbox](https://codesandbox.io/s/github/mahowa/Covid-
 
 Run `npm i && npm run start`
 
-
 ## Contributing
+
 If you've ever wanted to contribute to open source, and a great cause, now is your chance!
 
 I will make sure everyone gets credit as long as its not a spam request. Even if you do a task someone else does. Contribute!!
@@ -73,7 +77,9 @@ See these [contributing how to docs](http://opensource.guide/how-to-contribute/)
 If you create a PR I'll add you as a Hacktoberfest Contributor to the Readme using a [bot](https://allcontributors.org/docs/en/bot/usage);
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+
 [![All Contributors](https://img.shields.io/badge/all_contributors-18-orange.svg?style=flat-square)](#contributors-)
+
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 ## Contributors ✨
@@ -112,14 +118,16 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 
 <!-- markdownlint-enable -->
 <!-- prettier-ignore-end -->
+
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 PRs which are welcomed by us:
+
 1. Ones which you are assigned to do.
 2. Your PR has to link the issue.
 3. Your solution must be correct.
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
 
-*Created with [CodeSandbox](https://codesandbox.io/s/github/mahowa/Covid-19-d3)*
+_Created with [CodeSandbox](https://codesandbox.io/s/github/mahowa/Covid-19-d3)_
 Thank you!
