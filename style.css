@@ -1,57 +1,94 @@
-
 body {
-    margin: 0;
-    padding: 10px;
-    background-color: #161616;
-    color: white;
-    font-family: Lato, Roboto, "Open Sans", Arial, sans-serif;
+  margin: 0;
+  padding: 10px;
+  background-color: #161616;
+  color: white;
+
+  font-family: Lato, Roboto, "Open Sans", Arial, sans-serif;
 }
 
 .axis {
-    stroke: #383737;
+  stroke: #383737;
 }
 
 text {
-    font-size: 16px;
+  font-size: 16px;
 }
 
 .line,
 .data-line,
 .area-line {
-    fill: none;
-    stroke-width: 3;
+  fill: none;
+  stroke-width: 3;
 }
 
 .cases-line,
 .cases-line-area-line {
-    stroke: green;
+  stroke: green;
 }
 
 .deaths-line {
-    stroke: blue;
+  stroke: blue;
 }
 
 .area {
-    fill: url(#temperature-gradient);
+  fill: url(#temperature-gradient);
 }
 
 .cv19label {
-    margin-left: 20px;
+  margin-left: 20px;
 }
 
 .cv19select {
-    margin-left: 50px;
-    padding: 5px;
-    font-family: Lato, Roboto, "Open Sans", Arial, sans-serif;
+  margin-left: 50px;
+  padding: 5px;
+  font-family: Lato, Roboto, "Open Sans", Arial, sans-serif;
 }
 
 .summary-table {
-    margin-left: 50px;
-    margin-top: 25px;
-    border-spacing: 0;
+  margin-left: 50px;
+  margin-top: 25px;
+  border-spacing: 0;
 }
 
 .summary-table_cell {
-    text-align: left;
-    text-transform: capitalize;
+  text-align: left;
+  text-transform: capitalize;
+}
+
+.spinner {
+  width: 80px;
+  height: 80px;
+
+  border: 2px solid #f3f3f3;
+  border-top: 3px solid #f25a41;
+  border-radius: 100%;
+
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+
+  animation: spin 1s infinite linear;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+#overlay {
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 1);
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 99;
 }
