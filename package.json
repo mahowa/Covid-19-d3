@@ -12,7 +12,8 @@
     "prettier:write": "prettier -w src/* test/* --single-quote"
   },
   "dependencies": {
-    "d3": "5.16.0"
+    "d3": "5.16.0",
+    "topojson-client": "^3.1.0"
   },
   "eslintConfig": {
     "extends": [
@@ -36,6 +37,7 @@
     "@babel/plugin-proposal-optional-chaining": "^7.7.5",
     "@babel/preset-env": "^7.12.1",
     "babel-eslint": "^10.1.0",
+    "browser-sync": "^2.26.13",
     "eslint": "^7.11.0",
     "eslint-config-airbnb": "^18.2.0",
     "eslint-config-prettier": "^6.13.0",
