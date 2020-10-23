@@ -4,16 +4,14 @@ import init from "./data";
 import LineChart from "./LineChart";
 
 const main = async () => {
-  var overlay = document.getElementById("overlay");
+  const overlay = document.getElementById("overlay");
 
-  setTimeout(() => {
-    overlay.style.display = "none";
-  }, 500);
-  // Hacktober Fest Issue: create a cool loader for when data is getting pulled in
-  // Get all data
-  const data = await init();
-  console.log("Initialized data sets", Object.keys(data));
-  LineChart(data);
+  await init().then((data) => {
+    LineChart(data);
+    console.log("Initialized data sets", Object.keys(data));
+    setTimeout(() => {
+      overlay.style.display = "none";
+    }, 500);
+  });
 };
-
 main();
