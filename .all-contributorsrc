@@ -121,6 +121,15 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "RajSrinivasJena",
+      "name": "Raj Srinivas Jena",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/44380810?v=4",
+      "profile": "https://whatisweather.herokuapp.com/",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
