@@ -74,7 +74,7 @@ See these [contributing how to docs](http://opensource.guide/how-to-contribute/)
 If you create a PR I'll add you as a Hacktoberfest Contributor to the Readme using a [bot](https://allcontributors.org/docs/en/bot/usage);
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-14-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-15-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 ## Contributors ✨
@@ -102,6 +102,9 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/cardinalion"><img src="https://avatars0.githubusercontent.com/u/32423248?v=4" width="100px;" alt=""/><br /><sub><b>cardinalion</b></sub></a><br /><a href="https://github.com/mahowa/Covid-19-d3/commits?author=cardinalion" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/augusto-jm-amaral"><img src="https://avatars1.githubusercontent.com/u/10222646?v=4" width="100px;" alt=""/><br /><sub><b>Augusto Amaral</b></sub></a><br /><a href="https://github.com/mahowa/Covid-19-d3/commits?author=augusto-jm-amaral" title="Code">💻</a></td>
     <td align="center"><a href="https://whatisweather.herokuapp.com/"><img src="https://avatars0.githubusercontent.com/u/44380810?v=4" width="100px;" alt=""/><br /><sub><b>Raj Srinivas Jena</b></sub></a><br /><a href="https://github.com/mahowa/Covid-19-d3/commits?author=RajSrinivasJena" title="Code">💻</a></td>
+  </tr>
+  <tr>
+    <td align="center"><a href="https://github.com/Deepi1219"><img src="https://avatars3.githubusercontent.com/u/55830172?v=4" width="100px;" alt=""/><br /><sub><b>Deepi1219</b></sub></a><br /><a href="https://github.com/mahowa/Covid-19-d3/commits?author=Deepi1219" title="Code">💻</a></td>
   </tr>
 </table>
 
