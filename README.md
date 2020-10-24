@@ -31,6 +31,7 @@ This project is about D3 examples using real life data on real scenarios.
 NY Times Live Dataset: https://github.com/nytimes/covid-19-data/tree/master/live
 
 ![Current View](current_view.gif)
+Brush over section of chart to select the time frame. Double click to reset the chart.
 
 *NOTE: Please update this picutre if you make changes to the ui/add anything to the page*
 
@@ -44,14 +45,12 @@ NY Times Live Dataset: https://github.com/nytimes/covid-19-data/tree/master/live
         - Something like how to create a chart
         - How to custom style a chart
     2.  Write a test
-    3.  Add date range selector
-    4.  Update styles
-    5.  Add some more data sets
-    6.  Create a chart
+    3.  Update styles
+    4.  Add some more data sets
+    5.  Create a chart
        - Heatmap of us
-    7.  Add tool tips
-    8.  Add more documentation or helpful information to the comments in the code
-    9.  Make a global styles file and move styles in the index.js into that file
+    6.  Add tool tips
+    7.  Add more documentation or helpful information to the comments in the code
 
 HINT: Look through the code. There are some notes on things that might help you get started Hacking.
 
