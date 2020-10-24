@@ -22,6 +22,14 @@ export const initSummaryTable = (containerId) => {
   const table = d3.select(id).append('table').attr('class', 'summary-table');
 };
 
+function abbreviateNumber(value) {
+  return d3.format(".3s")(value);
+}
+
+function formatNumberWithCommas(value) {
+  return d3.format(",r")(value);
+}
+
 /**
  * Create a summary table for a chart
  * @param  {string} containerId id of chart
@@ -72,8 +80,10 @@ export const createSummaryTable = (containerId, data) => {
       .attr('class', 'summary-table_cell');
     body
       .append('td')
-      .text(summary[key].value)
+      .text(abbreviateNumber(summary[key].value))
+      .attr('data-title', formatNumberWithCommas(summary[key].value))
       .attr('width', 150)
       .attr('class', 'summary-table_cell');
   }
 };
+
