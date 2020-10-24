@@ -148,8 +148,25 @@ text {
   top: 0;
   z-index: 99;
 }
-  text-align: left;
-  text-transform: capitalize;
+
+[data-title]:hover:after {
+  opacity: 1;
+  transition: all 0.1s ease 0.5s;
+  visibility: visible;
+}
+[data-title]:after {
+  content: attr(data-title);
+  margin-left: 10px;
+  margin-top: 10px;
+  padding: 2px 4px;
+  color: black;
+  border-radius: 5px;
+  background-color: lightgray;
+  visibility: hidden;
+  font-size: 12px;
+}
+[data-title] {
+  position: relative;
 }
 
 .spinner {
