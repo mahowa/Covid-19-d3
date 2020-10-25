@@ -52,9 +52,7 @@ export const getAllData = async (list, all = false) => {
 
     const statesData = {};
     const usData = {};
-    for (let i = 0; i < raw.length; i++) {
-      const dataPoint = raw[i];
-
+    raw.forEach((dataPoint) => {
       if (statesData[dataPoint.state]) {
         statesData[dataPoint.state].push(dataPoint);
       } else {
@@ -71,8 +69,7 @@ export const getAllData = async (list, all = false) => {
         usData[dataPoint.date].deaths = Number(dataPoint.deaths);
         usData[dataPoint.date].state = 'All';
       }
-
-    };
+    });
 
     statesData['*All States*'] = Object.values(usData);
 
@@ -105,10 +102,20 @@ export const getAllData = async (list, all = false) => {
   //   data.us = await d3.csv('https://raw.githubusercontent.com/nytimes/covid-19-data/master/live/us.csv');
   // }
   //
-  // if (list.includes('counties') || all) {
-  //   // date,county,state,fips,cases,deaths,confirmed_cases,confirmed_deaths,probable_cases,probable_deaths
-  //   data.counties = await d3.csv('https://raw.githubusercontent.com/nytimes/covid-19-data/master/live/us-counties.csv');
-  // }
+  if (list.includes('counties') || all) {
+    // date,county,state,fips,cases,deaths,confirmed_cases,confirmed_deaths,probable_cases,probable_deaths
+    const rawData = Object.assign(
+      new Map(
+        await d3.csv(
+          'https://raw.githubusercontent.com/nytimes/covid-19-data/master/live/us-counties.csv',
+          ({ fips, cases }) => [fips, +cases]
+        )
+      ),
+      { title: 'Covid19 in US' }
+    );
+
+    data.counties = rawData;
+  }
   //
   // if (list.includes('mask_use') || all) {
   //   // COUNTYFP,NEVER,RARELY,SOMETIMES,FREQUENTLY,ALWAYS
