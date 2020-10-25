@@ -39,6 +39,13 @@ text {
   margin-left: 20px;
 }
 
+.cv19input {
+  margin-left: 15px;
+  width: 20px;
+  height: 20px;
+  vertical-align: middle; 
+}
+
 .cv19select {
   margin-left: 50px;
   padding: 5px;
