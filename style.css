@@ -8,6 +8,12 @@ body {
   font-family: Lato, Roboto, 'Open Sans', Arial, sans-serif;
 }
 
+/* svg {
+  display: block;
+  margin: auto;
+  border: 1px solid gray;
+} */
+
 .axis {
   stroke: #383737;
 }
@@ -204,4 +210,8 @@ text {
   left: 0;
   top: 0;
   z-index: 99;
+}
+
+.title {
+  color: white;
 }
