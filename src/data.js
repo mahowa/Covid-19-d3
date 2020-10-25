@@ -39,12 +39,9 @@ export const getAllData = async (list, all = false) => {
   const localData = localStorageHelper('get');
   const data = {};
 
-  if (localData && localData.date) {
+  if (localData.date) {
     const noofDays = (Date.now() - localData.date) / (1000 * 60 * 60 * 24);
-
-    if (noofDays < 1) {
-      return localData.data;
-    }
+    if (noofDays < 1) return localData.data;
   }
 
   if (list.includes('states') || all) {
@@ -55,14 +52,10 @@ export const getAllData = async (list, all = false) => {
 
     const statesData = {};
     const usData = {};
-    for (let i = 0; i < raw.length; i++) {
-      const dataPoint = raw[i];
+    raw.forEach((dataPoint) => {
 
-      if (statesData[dataPoint.state]) {
-        statesData[dataPoint.state].push(dataPoint);
-      } else {
-        statesData[dataPoint.state] = [dataPoint];
-      }
+      statesData[dataPoint.state] ??= [];
+      statesData[dataPoint.state].push(dataPoint);
 
       if (usData[dataPoint.date]) {
         usData[dataPoint.date].cases += Number(dataPoint.cases);
@@ -74,7 +67,8 @@ export const getAllData = async (list, all = false) => {
         usData[dataPoint.date].deaths = Number(dataPoint.deaths);
         usData[dataPoint.date].state = 'All';
       }
-    }
+
+    });
 
     statesData['*All States*'] = Object.values(usData);
 
@@ -84,9 +78,9 @@ export const getAllData = async (list, all = false) => {
       statesData[name] = data.map((d, i) => {
         const current = { ...d };
         current.cases = Math.max(Number(current.cases) - totalCases, 0);
-        current.cases_accum = totalCases += current.cases;
+        current.cases_accum = totalCases + current.cases;
         current.deaths = Math.max(Number(current.deaths) - totalDeaths, 0);
-        current.deaths_accum = totalDeaths += current.deaths;
+        current.deaths_accum = totalDeaths + current.deaths;
         current.date = new Date(current.date);
         return current;
       });
@@ -126,9 +120,7 @@ export const getAllData = async (list, all = false) => {
   //   );
   // }
 
-  if (all) {
-    localStorageHelper('set', { date: Date.now(), data });
-  }
+  if (all) localStorageHelper('set', { date: Date.now(), data });
 
   return data;
 };
