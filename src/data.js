@@ -54,8 +54,11 @@ export const getAllData = async (list, all = false) => {
     const usData = {};
     raw.forEach((dataPoint) => {
 
-      statesData[dataPoint.state] ??= [];
-      statesData[dataPoint.state].push(dataPoint);
+      if (statesData[dataPoint.state]) {
+        statesData[dataPoint.state].push(dataPoint);
+      } else {
+        statesData[dataPoint.state] = [dataPoint];
+      }
 
       if (usData[dataPoint.date]) {
         usData[dataPoint.date].cases += Number(dataPoint.cases);
