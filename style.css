@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap");
 body {
   margin: 0;
   padding: 10px;
@@ -38,11 +39,46 @@ text {
 .cv19label {
   margin-left: 20px;
 }
-
+.cv19input {
+  position: relative;
+  appearance: none;
+  outline: none;
+  -webkit-appearance: none;
+  width: 36px;
+  height: 18px;
+  border-radius: 18px;
+  background-color: green;
+  margin: 0 auto;
+  margin-left: 5px;
+}
+.cv19input:before {
+  content: "";
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border-radius: 18px;
+  top: 0;
+  left: 0;
+  background-color: #fff;
+  transform: scaleX(1.1);
+  transition: 0.5s;
+}
+.cv19input:checked::before {
+  left: 18px;
+}
 .cv19select {
   margin-left: 50px;
   padding: 5px;
+  background-color: black;
+  border: 2px solid transparent;
+  color: white;
+  box-shadow: 0 2px 30px rgba(255, 255, 255, 0.3);
+  border-radius: 18px;
   font-family: Lato, Roboto, "Open Sans", Arial, sans-serif;
+  outline: none;
+}
+.cv19select:focus {
+  border: 2px solid green;
 }
 
 .summary-table {
@@ -54,6 +90,26 @@ text {
 .summary-table_cell {
   text-align: left;
   text-transform: capitalize;
+}
+
+[data-title]:hover:after {
+  opacity: 1;
+  transition: all 0.1s ease 0.5s;
+  visibility: visible;
+}
+[data-title]:after {
+  content: attr(data-title);
+  margin-left: 10px;
+  margin-top: 10px;
+  padding: 2px 4px;
+  color: black;
+  border-radius: 5px;
+  background-color: lightgray;
+  visibility: hidden;
+  font-size: 12px;
+}
+[data-title] {
+  position: relative;
 }
 
 .spinner {

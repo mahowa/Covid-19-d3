@@ -16,7 +16,7 @@ let _initialXDomain;
 
 const calculateDimensions = () => {
   screenWidth = document.querySelector(`#${_containerId}`).clientWidth;
-  chartHeight = (screenWidth * 2) / 3;
+  chartHeight = window.innerHeight - 110;
 
   width = screenWidth - margin.left - margin.right;
   height = chartHeight - margin.top - margin.bottom;
