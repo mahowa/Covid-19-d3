@@ -72,7 +72,7 @@ export const getAllData = async (list, all = false) => {
         usData[dataPoint.date].state = 'All';
       }
 
-    });
+    };
 
     statesData['*All States*'] = Object.values(usData);
 
