@@ -52,7 +52,8 @@ export const getAllData = async (list, all = false) => {
 
     const statesData = {};
     const usData = {};
-    raw.forEach((dataPoint) => {
+    for (let i = 0; i < raw.length; i++) {
+      const dataPoint = raw[i];
 
       if (statesData[dataPoint.state]) {
         statesData[dataPoint.state].push(dataPoint);
