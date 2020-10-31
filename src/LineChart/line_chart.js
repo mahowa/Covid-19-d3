@@ -28,6 +28,7 @@ const redrawing = () => {
 };
 
 // Hacktoberfest: Update this function to animate the data change instead of redrawing the chart each time
+// Ref: http://duspviz.mit.edu/d3-workshop/transitions-animation/
 window.addEventListener('resize', redrawing);
 
 export const initLineChart = (containerId, options) => {
@@ -75,11 +76,13 @@ export const initLineChart = (containerId, options) => {
   const line = svg.append('g').attr('clip-path', 'url(#clip)');
 
   const brush = d3
-    .brushX() // Add the brush feature using the d3.brush function
+    // Add the brush feature using the d3.brush function
+    // https://github.com/d3/d3-brush/blob/v2.0.0/README.md#brushX
+    .brushX()
     .extent([
       [0, 0],
       [width, height],
-    ]) // initialise the brush area: start at 0,0 and finishes at width,height: it means I select the whole graph area
+    ]) // Initialise the brush area: start at 0,0 and finishes at width,height: it means I select the whole graph area
     .on('end', () => {
       const selection = d3.event.selection;
       if (selection) {
@@ -101,7 +104,7 @@ export const initLineChart = (containerId, options) => {
     svg
       .append('path')
       .attr('class', `${options.lineMap[options.area.property]}-area area`);
-    // add lines for area
+    // Add lines for area
     svg
       .append('line')
       .attr(
@@ -116,7 +119,8 @@ export const initLineChart = (containerId, options) => {
       );
 
     // Hacktoberfest Issue: make gradient customizable (Hint: you can add the vars to the options.area variable)
-    // add gradient to svg
+    // Add gradient to svg
+    // Ref: https://www.visualcinnamon.com/2016/05/smooth-color-legend-d3-svg-gradient
     svg
       .append('linearGradient')
       .attr('id', 'temperature-gradient')
@@ -129,6 +133,7 @@ export const initLineChart = (containerId, options) => {
 /**
  * Create a line chart
  * @param  {Object} options key value pair of chart controls TODO: Add documentation of whats inside
+ * Ref: https://www.dashingd3js.com/lessons/basic-chart-line-chart
  */
 export const createLineChart = async (options) => {
   const numYTicks = 6;
@@ -207,8 +212,9 @@ export const createLineChart = async (options) => {
 
   yAxis.selectAll('text').attr('x', -10).attr('y', -4);
 
-  // Add closing boxes around chart
   // Hacktoberfest Issue: add a custom class using the options variable (Hint look for other examples)
+  // Add closing boxes around chart
+  // Ref: https://benclinkinbeard.com/d3tips/attrclass-vs-classed/
   svg
     .select('.sideXAxis')
     .attr('x1', xScale(firstDay))
@@ -272,7 +278,7 @@ export const createLineChart = async (options) => {
           .y0(yScale(0))
           .y1((d) => yScale(d[options.lineMap[options.area.property]]))
       );
-    // add lines for area
+    // Add lines for area
     svg
       .select(`.${options.lineMap[options.area.property]}-area-line.bottom`)
       .attr('x1', xScale(firstDay))
@@ -297,7 +303,8 @@ export const createLineChart = async (options) => {
       );
 
     // Hacktoberfest Issue: make gradient customizable (Hint: you can add the vars to the options.area variable)
-    // add gradient to svg
+    // Add gradient to svg
+    // Ref: https://www.freshconsulting.com/d3-js-gradients-the-easy-way/
     svg
       .select(`#temperature-gradient`)
       .attr('x1', 0)
