@@ -2,17 +2,11 @@
 body {
   margin: 0;
   padding: 10px;
-  background-color: #161616;
+  background-color: black;
   color: white;
 
   font-family: Lato, Roboto, 'Open Sans', Arial, sans-serif;
 }
-
-/* svg {
-  display: block;
-  margin: auto;
-  border: 1px solid gray;
-} */
 
 .axis {
   stroke: #383737;
@@ -155,63 +149,10 @@ text {
   z-index: 99;
 }
 
-[data-title]:hover:after {
-  opacity: 1;
-  transition: all 0.1s ease 0.5s;
-  visibility: visible;
-}
-[data-title]:after {
-  content: attr(data-title);
-  margin-left: 10px;
-  margin-top: 10px;
-  padding: 2px 4px;
-  color: black;
-  border-radius: 5px;
-  background-color: lightgray;
-  visibility: hidden;
-  font-size: 12px;
-}
-[data-title] {
-  position: relative;
-}
-
-.spinner {
-  width: 80px;
-  height: 80px;
-
-  border: 2px solid #f3f3f3;
-  border-top: 3px solid #f25a41;
-  border-radius: 100%;
-
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  margin: auto;
-
-  animation: spin 1s infinite linear;
-}
-
-@keyframes spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-#overlay {
-  height: 100%;
-  width: 100%;
-  background: rgba(0, 0, 0, 1);
-  position: fixed;
-  left: 0;
-  top: 0;
-  z-index: 99;
-}
-
 .title {
+  color: black;
+}
+
+#legend {
   color: white;
 }
