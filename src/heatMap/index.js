@@ -1,8 +1,7 @@
 import * as d3 from 'd3';
 import * as topojson from 'topojson-client';
-// import legend from './legend'
+import legend from './legend';
 
-// Hacktoberfest: Update this function to animate the data change instead of redrawing the chart each time
 function responsivefy(svg) {
   // container will be the DOM element the svg is appended to
   // we then measure the container and find its aspect ratio
@@ -11,24 +10,13 @@ function responsivefy(svg) {
     height = parseInt(svg.style('height'), 10),
     aspect = width / height;
 
-  // add viewBox attribute and set its value to the initial size
-  // add preserveAspectRatio attribute to specify how to scale
-  // and call resize so that svg resizes on inital page load
   svg
     .attr('viewBox', `0 0 ${width} ${height}`)
     .attr('preserveAspectRatio', 'xMinYMid')
     .call(resize);
 
-  // add a listener so the chart will be resized when the window resizes
-  // to register multiple listeners for same event type,
-  // you need to add namespace, i.e., 'click.foo'
-  // necessary if you invoke this function for multiple svgs
-  // api docs: https://github.com/mbostock/d3/wiki/Selections#on
   d3.select(window).on('resize.' + container.attr('id'), resize);
 
-  // this is the code that actually resizes the chart
-  // and will be called on load and in response to window resize
-  // gets the width of the container and proportionally resizes the svg to fit
   function resize() {
     const targetWidth = parseInt(container.style('width'));
     svg.attr('width', targetWidth);
@@ -42,14 +30,12 @@ export default function HeatMap(data) {
   let height = 0;
   let y;
   let x;
-  let scaleHeight = 30;
-  let scaleWidth = 300;
 
   const screenWidth = document.querySelector('#map').clientWidth;
   const chartHeight = screenWidth / 2;
 
   width = screenWidth - margin.left - margin.right;
-  height = chartHeight - margin.top - margin.bottom;
+  height = chartHeight;
 
   const path = d3.geoPath();
   const format = d3.format('d');
@@ -74,16 +60,6 @@ export default function HeatMap(data) {
 
   const g = svg.append('g');
 
-  svg
-    .append('text')
-    .attr('transform', 'translate(0 ,0)')
-    .attr('x', width / 2)
-    .attr('y', 20)
-    .attr('class', 'title')
-    .style('fill', 'white')
-    .style('font-size', '25px')
-    .text('COVID 19 US cases per day');
-
   d3.json(
     'https://cdn.jsdelivr.net/npm/us-atlas@3.0.0/counties-albers-10m.json'
   ).then(function (us) {
@@ -103,34 +79,7 @@ export default function HeatMap(data) {
       .attr('stroke-linejoin', 'round')
       .attr('d', path);
 
-    const colorScale = d3
-      .scaleSequential(d3.interpolateRdPu)
-      .domain([...data.values()]);
-
-    const defs = svg.append('defs');
-
-    const numberOfGradientStops = 10;
-    const stops = d3
-      .range(numberOfGradientStops)
-      .map((i) => i / (numberOfGradientStops - 1));
-    const legendGradientId = 'legend-gradient';
-    const gradient = defs
-      .append('linearGradient')
-      .attr('id', legendGradientId)
-      .selectAll('stop')
-      .data(stops)
-      .enter()
-      .append('stop')
-      .attr('stop-color', (d) => d3.interpolateRdPu(d))
-      .attr('offset', (d) => `${d * 100}%`);
-
-    const legendGradient = svg
-      .append('rect')
-      .attr('transform', `translate(${width / 2} ,-40)`)
-      .attr('height', scaleHeight)
-      .attr('width', scaleWidth)
-
-      .style('fill', `url(#${legendGradientId})`);
+    legend(data, svg, width);
   });
 
   return svg.node();
