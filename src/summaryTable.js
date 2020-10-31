@@ -4,11 +4,8 @@ import * as d3 from 'd3';
  * Get the total cases over a period of time. NOTE: add keys to object to get other totals. eg deaths
  * @param  {Object[]} data filtered state data over a period of time
  */
-const getTotals = (data) => data.reduce((res, day) => 
-    ({cases: res.cases + day.cases,}),
-    { cases: 0 }
-  );
-
+const getTotals = (data) =>
+  data.reduce((res, day) => ({ cases: res.cases + day.cases }), { cases: 0 });
 
 /**
  * Init summary table before chart initialization
@@ -19,9 +16,9 @@ export const initSummaryTable = (containerId) => {
   const table = d3.select(id).append('table').attr('class', 'summary-table');
 };
 
-const abbreviateNumber = (value) => d3.format(".3s")(value);
+const abbreviateNumber = (value) => d3.format('.3s')(value);
 
-const formatNumberWithCommas = (value) => d3.format(",r")(value);
+const formatNumberWithCommas = (value) => d3.format(',r')(value);
 
 /**
  * Create a summary table for a chart
@@ -79,4 +76,3 @@ export const createSummaryTable = (containerId, data) => {
       .attr('class', 'summary-table_cell');
   }
 };
-
