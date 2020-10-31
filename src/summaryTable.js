@@ -19,7 +19,7 @@ function getTotals(data) {
  */
 export const initSummaryTable = (containerId) => {
   const id = `#${containerId}`;
-  const table = d3.select(id).append('table').attr('class', 'summary-table');
+  const table = d3.select(id).append('table').attr('id', 'summary-table');
 };
 
 function abbreviateNumber(value) {
@@ -38,7 +38,7 @@ function formatNumberWithCommas(value) {
 export const createSummaryTable = (containerId, data) => {
   const id = `#${containerId}`;
 
-  d3.select(`${id} .summary-table`).html('');
+  d3.select(`${id} #summary-table`).html('');
 
   const numPoints = data.length;
   const lastDay = data[numPoints - 1].date.getDay();
@@ -68,7 +68,7 @@ export const createSummaryTable = (containerId, data) => {
     },
   };
 
-  const table = d3.select('.summary-table');
+  const table = d3.select('#summary-table');
   const head = table.append('thead').append('tr');
   const body = table.append('tbody').append('tr');
 

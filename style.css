@@ -45,7 +45,7 @@ text {
   font-family: Lato, Roboto, "Open Sans", Arial, sans-serif;
 }
 
-.summary-table {
+#summary-table {
   margin-left: 50px;
   margin-top: 25px;
   border-spacing: 0;

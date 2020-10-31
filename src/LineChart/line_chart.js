@@ -15,12 +15,18 @@ let _xAxis;
 let _initialXDomain;
 
 const calculateDimensions = () => {
-  screenWidth = document.querySelector(`#${_containerId}`).clientWidth;
-  chartHeight = (screenWidth * 2) / 3;
+  screenWidth = window.innerWidth;
+  chartHeight = window.innerHeight- getHeaderHeight() - 90;
 
   width = screenWidth - margin.left - margin.right;
   height = chartHeight - margin.top - margin.bottom;
 };
+
+const getHeaderHeight = () => {
+  const filterHeight = document.getElementById('state_select').offsetHeight;
+  const summaryTableHeight = document.getElementById('summary-table').offsetHeight;
+  return filterHeight + summaryTableHeight;
+}
 
 const redrawing = () => {
   initLineChart(_containerId, _options);
