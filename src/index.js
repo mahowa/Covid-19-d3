@@ -1,5 +1,5 @@
 //  Datasets: https://github.com/nytimes/covid-19-data/
-//  Controler for initializing Charts
+//  Controller for initializing Charts
 import init from './data';
 import LineChart from './LineChart';
 import HeatMap from './heatMap';

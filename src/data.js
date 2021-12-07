@@ -31,7 +31,7 @@ const localStorageHelper = (action, payload) => {
 /**
  * Helper function to supply data to charts
  * @param  {Array<"states" | "colleges" | "us" | "counties" | "mask_use" | "excess_deaths">} list list of datasets to pull
- * @param  {boolean} all overides list and pulls all datasets
+ * @param  {boolean} all overrides list and pulls all datasets
  * @return {[Object]} object with keys from the list or all with full csv array
  */
 export const getAllData = async (list, all = false) => {
@@ -72,17 +72,19 @@ export const getAllData = async (list, all = false) => {
     });
 
     statesData['*All States*'] = Object.values(usData);
-
+    debugger;
     Object.entries(statesData).forEach(([name, data]) => {
-      let totalCases = Number(data[0]?.cases || 0);
-      let totalDeaths = Number(data[0]?.deaths || 0);
+      let prevTotalCases = 0;
+      let prevTotalDeaths = 0;
       statesData[name] = data.map((d, i) => {
         const current = { ...d };
-        current.cases = Math.max(Number(current.cases) - totalCases, 0);
-        current.cases_accum = totalCases + current.cases;
-        current.deaths = Math.max(Number(current.deaths) - totalDeaths, 0);
-        current.deaths_accum = totalDeaths + current.deaths;
+        current.cases = Math.max(Number(current.cases) - prevTotalCases, 0);
+        current.cases_accum = prevTotalCases + current.cases;
+        current.deaths = Math.max(Number(current.deaths) - prevTotalDeaths, 0);
+        current.deaths_accum = prevTotalDeaths + current.deaths;
         current.date = new Date(current.date);
+        prevTotalCases = current.cases_accum;
+        prevTotalDeaths = current.deaths_accum;
         return current;
       });
     });
