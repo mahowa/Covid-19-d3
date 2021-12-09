@@ -72,7 +72,7 @@ export const getAllData = async (list, all = false) => {
     });
 
     statesData['*All States*'] = Object.values(usData);
-    debugger;
+
     Object.entries(statesData).forEach(([name, data]) => {
       let prevTotalCases = 0;
       let prevTotalDeaths = 0;
