@@ -1,8 +1,8 @@
-import * as d3 from 'd3';
+import * as d3 from "d3";
 
 // SuperFeature: Create a git event that pulls in datasets locally when theres a push to the master branch
 // TODO add a time stamp to local storage and make the init function refresh the data if greater than one day
-export const StorageIndex = 'cv19data';
+export const StorageIndex = "cv19data";
 
 /**
  * Helper function to handle local storage
@@ -13,13 +13,13 @@ export const StorageIndex = 'cv19data';
 const localStorageHelper = (action, payload) => {
   let returnVal = null;
   switch (action) {
-    case 'set':
+    case "set":
       localStorage.setItem(StorageIndex, JSON.stringify(payload));
       break;
-    case 'get':
+    case "get":
       returnVal = localStorage.getItem(StorageIndex);
       break;
-    case 'remove':
+    case "remove":
       localStorage.removeItem(StorageIndex);
       break;
     default:
@@ -31,23 +31,23 @@ const localStorageHelper = (action, payload) => {
 /**
  * Helper function to supply data to charts
  * @param  {Array<"states" | "colleges" | "us" | "counties" | "mask_use" | "excess_deaths">} list list of datasets to pull
- * @param  {boolean} all overrides list and pulls all datasets
+ * @param  {boolean} all overides list and pulls all datasets
  * @return {[Object]} object with keys from the list or all with full csv array
  */
 export const getAllData = async (list, all = false) => {
   // localData : {date: timestamp, data: {}}
-  const localData = localStorageHelper('get');
+  // const localData = localStorageHelper('get');
   const data = {};
 
-  if (localData?.date) {
-    const noofDays = (Date.now() - localData.date) / (1000 * 60 * 60 * 24);
-    if (noofDays < 1) return localData.data;
-  }
+  // if (localData?.date) {
+  //   const noofDays = (Date.now() - localData.date) / (1000 * 60 * 60 * 24);
+  //   if (noofDays < 1) return localData.data;
+  // }
 
-  if (list.includes('states') || all) {
+  if (list.includes("states") || all) {
     // date,state,fips,cases,deaths
     const raw = await d3.csv(
-      'https://raw.githubusercontent.com/nytimes/covid-19-data/master/us-states.csv'
+      "https://raw.githubusercontent.com/nytimes/covid-19-data/master/us-states.csv"
     );
 
     const statesData = {};
@@ -62,29 +62,27 @@ export const getAllData = async (list, all = false) => {
       if (usData[dataPoint.date]) {
         usData[dataPoint.date].cases += Number(dataPoint.cases);
         usData[dataPoint.date].deaths += Number(dataPoint.deaths);
-        usData[dataPoint.date].state = 'All';
+        usData[dataPoint.date].state = "All";
       } else {
         usData[dataPoint.date] = { ...dataPoint };
         usData[dataPoint.date].cases = Number(dataPoint.cases);
         usData[dataPoint.date].deaths = Number(dataPoint.deaths);
-        usData[dataPoint.date].state = 'All';
+        usData[dataPoint.date].state = "All";
       }
     });
 
-    statesData['*All States*'] = Object.values(usData);
+    statesData["*All States*"] = Object.values(usData);
 
     Object.entries(statesData).forEach(([name, data]) => {
-      let prevTotalCases = 0;
-      let prevTotalDeaths = 0;
+      let totalCases = Number(data[0]?.cases || 0);
+      let totalDeaths = Number(data[0]?.deaths || 0);
       statesData[name] = data.map((d, i) => {
         const current = { ...d };
-        current.cases = Math.max(Number(current.cases) - prevTotalCases, 0);
-        current.cases_accum = prevTotalCases + current.cases;
-        current.deaths = Math.max(Number(current.deaths) - prevTotalDeaths, 0);
-        current.deaths_accum = prevTotalDeaths + current.deaths;
+        current.cases = Math.max(Number(current.cases) - totalCases, 0);
+        current.cases_accum = totalCases + current.cases;
+        current.deaths = Math.max(Number(current.deaths) - totalDeaths, 0);
+        current.deaths_accum = totalDeaths + current.deaths;
         current.date = new Date(current.date);
-        prevTotalCases = current.cases_accum;
-        prevTotalDeaths = current.deaths_accum;
         return current;
       });
     });
@@ -104,16 +102,16 @@ export const getAllData = async (list, all = false) => {
   //   data.us = await d3.csv('https://raw.githubusercontent.com/nytimes/covid-19-data/master/live/us.csv');
   // }
   //
-  if (list.includes('counties') || all) {
+  if (list.includes("counties") || all) {
     // date,county,state,fips,cases,deaths,confirmed_cases,confirmed_deaths,probable_cases,probable_deaths
     const rawData = Object.assign(
       new Map(
         await d3.csv(
-          'https://raw.githubusercontent.com/nytimes/covid-19-data/master/live/us-counties.csv',
+          "https://raw.githubusercontent.com/nytimes/covid-19-data/master/live/us-counties.csv",
           ({ fips, cases }) => [fips, +cases]
         )
       ),
-      { title: 'Covid19 in US' }
+      { title: "Covid19 in US" }
     );
 
     data.counties = rawData;
@@ -133,7 +131,8 @@ export const getAllData = async (list, all = false) => {
   //   );
   // }
 
-  if (all) localStorageHelper('set', { date: Date.now(), data });
+  // TO Much data for localstorage
+  // if (all) localStorageHelper('set', { date: Date.now(), data });
 
   return data;
 };
